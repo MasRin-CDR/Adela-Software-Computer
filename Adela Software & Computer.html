@@ -1,0 +1,5082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adela Software & Komputer delivers modern websites, applications, business systems, and digital solutions for organizations and businesses.">
+  <meta name="theme-color" content="#2563EB">
+  <meta property="og:title" content="Adela Software & Komputer">
+  <meta property="og:description" content="Professional digital solutions for websites, applications, and business systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adela-software.vercel.app">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Adela Software & Komputer - Build Smart Digital Solutions</title>
+  <!-- Preload Font for smooth load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+/*
+ * Adela Software & Komputer - Corporate Style Sheet
+ * Professional Polish Design Theme
+ */
+
+/* -------------------------------------------------------------------------- */
+/* 1. ROOT & GENERAL STYLES                                                    */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --secondary: #0EA5E9;
+  --accent: #06B6D4;
+  --dark: #0F172A;
+  --bg: #F8FAFC;
+  --white: #FFFFFF;
+  --text: #475569; /* slate-600 */
+  --text-light: #64748B; /* slate-500 */
+  --text-heading: #0F172A; /* slate-900 */
+  --card-bg: #FFFFFF;
+  --border: #E2E8F0; /* slate-200 */
+  --border-focus: #3B82F6; /* blue-500 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  --radius-sm: 8px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --max-width: 1280px;
+}
+
+.dark {
+  --bg: #0B0F19; /* deep space slate */
+  --white: #131B2E; /* rich card dark slate */
+  --card-bg: #131B2E;
+  --text: #94A3B8; /* slate-400 */
+  --text-light: #64748B; /* slate-500 */
+  --text-heading: #F8FAFC; /* slate-50 */
+  --border: #1E293B; /* slate-800 */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-family);
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-fast);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. LOADING SCREEN                                                          */
+/* -------------------------------------------------------------------------- */
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0F172A;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(37, 99, 235, 0.1);
+  border-left-color: var(--primary);
+  border-right-color: var(--secondary);
+  border-radius: var(--radius-full);
+  animation: loader-spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.loader-text {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: var(--font-family);
+}
+
+.loader-text span {
+  color: var(--secondary);
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. LAYOUT CONTAINER                                                        */
+/* -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 60px auto;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+}
+
+.dark .section-badge {
+  background-color: rgba(14, 165, 233, 0.15);
+  color: var(--secondary);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-light);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. BUTTONS & RIPPLE                                                        */
+/* -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  gap: 10px;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -3px rgba(37, 99, 235, 0.35);
+}
+
+.btn-secondary {
+  background-color: rgba(37, 99, 235, 0.05);
+  color: var(--primary);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+  transform: translateY(-2px);
+}
+
+.dark .btn-secondary {
+  background-color: rgba(14, 165, 233, 0.05);
+  color: var(--secondary);
+  border: 1px solid rgba(14, 165, 233, 0.15);
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgba(14, 165, 233, 0.12);
+}
+
+.btn-dark {
+  background-color: var(--dark);
+  color: #FFFFFF;
+  box-shadow: var(--shadow);
+}
+
+.btn-dark:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.dark .btn-dark {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  background-color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* 5. HEADER & STICKY NAVIGATION                                               */
+/* -------------------------------------------------------------------------- */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(248, 250, 252, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  transition: background-color 0.3s, border-color 0.3s, padding 0.3s;
+}
+
+.dark header {
+  background-color: rgba(11, 15, 25, 0.8);
+}
+
+header.scrolled {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  transition: var(--transition);
+}
+
+header.scrolled .navbar {
+  height: 70px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-heading);
+  text-transform: uppercase;
+}
+
+.logo-title span {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-subtitle {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  position: relative;
+  padding: 8px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+}
+
+.dark .nav-link:hover, .dark .nav-link.active {
+  color: var(--secondary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+.dark .nav-link::after {
+  background-color: var(--secondary);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* Action Controls (Right) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Language Switch */
+.lang-switch {
+  display: flex;
+  background-color: var(--border);
+  padding: 3px;
+  border-radius: var(--radius-full);
+  position: relative;
+  width: 84px;
+  height: 34px;
+}
+
+.lang-btn {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-light);
+  border-radius: var(--radius-full);
+  z-index: 2;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-btn.active {
+  color: var(--primary);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.dark .lang-btn.active {
+  color: var(--secondary);
+  background-color: #1E293B;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  background-color: var(--border);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-heading);
+  transition: var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.dark .theme-toggle .sun-icon {
+  display: block;
+}
+
+.dark .theme-toggle .moon-icon {
+  display: none;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-heading);
+  border-radius: 3px;
+  transition: var(--transition-fast);
+  transform-origin: left center;
+}
+
+/* Mobile Sidebar Drawer */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background-color: var(--white);
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+  padding: 100px 30px 40px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+}
+
+.mobile-nav-link {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.mobile-nav-link.active, .mobile-nav-link:hover {
+  color: var(--primary);
+}
+
+.mobile-nav-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: auto;
+}
+
+/* Backdrop overlay */
+.overlay-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.overlay-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hamburger animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 6. HERO SECTION                                                            */
+/* -------------------------------------------------------------------------- */
+
+.hero-section {
+  padding-top: 160px;
+  padding-bottom: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-cols: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  margin-bottom: 24px;
+}
+
+.dark .hero-badge {
+  background-color: rgba(14, 165, 233, 0.15);
+  color: var(--secondary);
+}
+
+.hero-title {
+  font-size: 3.75rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.trust-avatars {
+  display: flex;
+}
+
+.trust-avatars img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--white);
+  margin-right: -12px;
+  background-color: var(--border);
+}
+
+.trust-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.trust-text span {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Hero Illustration (Right Column) */
+.hero-illustration {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-canvas {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+/* Floating dynamic cards in Hero */
+.floating-cards-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.floating-card {
+  position: absolute;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: float-animation 6s ease-in-out infinite;
+}
+
+.floating-card-1 {
+  top: 15%;
+  left: -10px;
+  animation-delay: 0s;
+}
+
+.floating-card-2 {
+  bottom: 20%;
+  right: -10px;
+  animation-delay: 2s;
+}
+
+.floating-card-3 {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.floating-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.fc-blue {
+  background-color: var(--primary);
+}
+
+.fc-sky {
+  background-color: var(--secondary);
+}
+
+.fc-cyan {
+  background-color: var(--accent);
+}
+
+.floating-card-text h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.floating-card-text p {
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+@keyframes float-animation {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.02);
+  }
+}
+
+/* Background animated shapes */
+.bg-shape {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.35;
+}
+
+.dark .bg-shape {
+  opacity: 0.15;
+}
+
+.bg-shape-1 {
+  width: 300px;
+  height: 300px;
+  background-color: var(--primary);
+  top: 10%;
+  right: -50px;
+}
+
+.bg-shape-2 {
+  width: 250px;
+  height: 250px;
+  background-color: var(--secondary);
+  bottom: 10%;
+  left: -100px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 7. ABOUT COMPANY                                                           */
+/* -------------------------------------------------------------------------- */
+
+.about-grid {
+  display: grid;
+  grid-template-cols: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 30px;
+}
+
+/* Vision Mission Tab System */
+.vm-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.vm-tab-btn {
+  padding: 12px 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-light);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: var(--transition-fast);
+}
+
+.vm-tab-btn.active, .vm-tab-btn:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.dark .vm-tab-btn.active, .dark .vm-tab-btn:hover {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+}
+
+.vm-tab-content {
+  display: none;
+  animation: fade-in-up 0.4s ease;
+}
+
+.vm-tab-content.active {
+  display: block;
+}
+
+.vm-tab-content p {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.vm-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.vm-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.vm-list li svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.dark .vm-list li svg {
+  color: var(--secondary);
+}
+
+/* Values Grid (Right Column) */
+.values-grid {
+  display: grid;
+  grid-template-cols: 1fr 1fr;
+  gap: 20px;
+}
+
+.value-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--shadow-md);
+}
+
+.dark .value-card:hover {
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.value-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(37, 99, 235, 0.05);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.dark .value-icon {
+  background-color: rgba(14, 165, 233, 0.1);
+  color: var(--secondary);
+}
+
+.value-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+
+.value-card p {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 8. SERVICES SECTION                                                        */
+/* -------------------------------------------------------------------------- */
+
+.services-grid {
+  display: grid;
+  grid-template-cols: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 30px;
+  border-radius: var(--radius);
+  transition: var(--transition-slow);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.dark .service-card:hover {
+  border-color: var(--secondary);
+}
+
+.service-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+
+.sic-1  { background-color: rgba(37, 99, 235, 0.05); color: var(--primary); }
+.sic-2  { background-color: rgba(14, 165, 233, 0.05); color: var(--secondary); }
+.sic-3  { background-color: rgba(6, 182, 212, 0.05); color: var(--accent); }
+.sic-4  { background-color: rgba(99, 102, 241, 0.05); color: #6366F1; }
+.sic-5  { background-color: rgba(139, 92, 246, 0.05); color: #8B5CF6; }
+.sic-6  { background-color: rgba(236, 72, 153, 0.05); color: #EC4899; }
+.sic-7  { background-color: rgba(244, 63, 94, 0.05); color: #F43F5E; }
+.sic-8  { background-color: rgba(245, 158, 11, 0.05); color: #F59E0B; }
+.sic-9  { background-color: rgba(16, 185, 129, 0.05); color: #10B981; }
+.sic-10 { background-color: rgba(20, 184, 166, 0.05); color: #20B8A6; }
+.sic-11 { background-color: rgba(79, 70, 229, 0.05); color: #4F46E5; }
+.sic-12 { background-color: rgba(30, 41, 59, 0.05); color: var(--text-heading); }
+
+.dark .service-icon-wrapper {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.service-card:hover .service-icon-wrapper {
+  transform: rotateY(360deg);
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 9. WHY CHOOSE US                                                           */
+/* -------------------------------------------------------------------------- */
+
+.why-grid {
+  display: grid;
+  grid-template-cols: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.why-content h3 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.why-content p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.why-highlights {
+  display: grid;
+  grid-template-cols: 1fr 1fr;
+  gap: 20px;
+}
+
+.why-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  display: flex;
+  gap: 16px;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--shadow-md);
+}
+
+.why-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dark .why-card-icon {
+  background-color: rgba(14, 165, 233, 0.15);
+  color: var(--secondary);
+}
+
+.why-card-text h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+
+.why-card-text p {
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 10. WORKFLOW TIMELINE                                                      */
+/* -------------------------------------------------------------------------- */
+
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: var(--border);
+  z-index: 1;
+}
+
+.timeline-line-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  transition: height 0.1s linear;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 40px;
+  margin-bottom: 60px;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-badge {
+  position: absolute;
+  top: 15px;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-full);
+  background-color: var(--white);
+  border: 4px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-heading);
+  z-index: 3;
+  transition: var(--transition);
+}
+
+.timeline-item:nth-child(even) .timeline-badge {
+  left: -23px;
+}
+
+.timeline-item:nth-child(odd) .timeline-badge {
+  right: -23px;
+}
+
+.timeline-item.active .timeline-badge {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+}
+
+.dark .timeline-item.active .timeline-badge {
+  border-color: var(--secondary);
+  background-color: var(--secondary);
+}
+
+.timeline-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 30px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  display: inline-block;
+  max-width: 100%;
+  text-align: left;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  text-align: right;
+}
+
+.timeline-content-inner {
+  text-align: left;
+}
+
+.timeline-item.active .timeline-content {
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-step {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.dark .timeline-step {
+  color: var(--secondary);
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+}
+
+.timeline-desc {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 11. TECH STACK                                                             */
+/* -------------------------------------------------------------------------- */
+
+.tech-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tech-tab-btn {
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  background-color: var(--white);
+  border-radius: var(--radius-full);
+  color: var(--text);
+  transition: var(--transition-fast);
+}
+
+.tech-tab-btn:hover, .tech-tab-btn.active {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+.dark .tech-tab-btn:hover, .dark .tech-tab-btn.active {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-cols: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.tech-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--shadow-md);
+}
+
+.tech-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon svg, .tech-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tech-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.tech-category {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 12. PORTFOLIO GRID                                                         */
+/* -------------------------------------------------------------------------- */
+
+.portfolio-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.portfolio-tab-btn {
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  background-color: var(--white);
+  border-radius: var(--radius-full);
+  color: var(--text);
+  transition: var(--transition-fast);
+}
+
+.portfolio-tab-btn:hover, .portfolio-tab-btn.active {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+.dark .portfolio-tab-btn:hover, .dark .portfolio-tab-btn.active {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-cols: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.portfolio-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition-slow);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: var(--shadow-lg);
+}
+
+.portfolio-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1E293B, #0F172A);
+}
+
+.portfolio-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.8));
+  opacity: 0.7;
+}
+
+.portfolio-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  padding: 24px;
+  text-align: center;
+}
+
+.portfolio-placeholder-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+
+.portfolio-placeholder h5 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.portfolio-placeholder p {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 4px;
+  z-index: 2;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(37, 99, 235, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 3;
+}
+
+.dark .portfolio-overlay {
+  background-color: rgba(14, 165, 233, 0.95);
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-btn {
+  background-color: #FFFFFF;
+  color: var(--primary);
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transform: scale(0.8);
+  transition: var(--transition);
+}
+
+.dark .portfolio-btn {
+  color: var(--secondary);
+}
+
+.portfolio-card:hover .portfolio-btn {
+  transform: scale(1);
+}
+
+.portfolio-btn:hover {
+  background-color: var(--dark);
+  color: #FFFFFF;
+}
+
+.portfolio-info {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.dark .portfolio-category {
+  color: var(--secondary);
+}
+
+.portfolio-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 10px;
+}
+
+.portfolio-desc {
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.portfolio-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.portfolio-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--bg);
+  color: var(--text-light);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 13. STATS SECTION                                                          */
+/* -------------------------------------------------------------------------- */
+
+.stats-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: #FFFFFF;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-cols: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+
+.stat-item {
+  position: relative;
+  z-index: 2;
+}
+
+.stat-num-wrapper {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 14. TESTIMONIAL SLIDER                                                     */
+/* -------------------------------------------------------------------------- */
+
+.testimonial-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.testimonial-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-quote-icon {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  opacity: 0.08;
+  color: var(--primary);
+  width: 60px;
+  height: 60px;
+}
+
+.testimonial-stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 20px;
+  color: #F59E0B;
+}
+
+.testimonial-text {
+  font-size: 1.125rem;
+  color: var(--text-heading);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+  border: 3px solid var(--primary);
+  background-color: var(--border);
+  object-fit: cover;
+}
+
+.testimonial-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.testimonial-company {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+/* Slider Controls */
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.slider-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-full);
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.slider-arrow:hover {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+.dark .slider-arrow:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.slider-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--border);
+  transition: var(--transition-fast);
+}
+
+.slider-dot.active {
+  background-color: var(--primary);
+  width: 24px;
+}
+
+.dark .slider-dot.active {
+  background-color: var(--secondary);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 15. FAQ ACCORDION                                                          */
+/* -------------------------------------------------------------------------- */
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.faq-icon-wrapper {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: rgba(37, 99, 235, 0.05);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.dark .faq-icon-wrapper {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--secondary);
+}
+
+.faq-icon-wrapper svg {
+  width: 14px;
+  height: 14px;
+  transition: var(--transition);
+}
+
+.faq-item.open .faq-icon-wrapper {
+  transform: rotate(180deg);
+  background-color: var(--primary);
+  color: #FFFFFF;
+}
+
+.dark .faq-item.open .faq-icon-wrapper {
+  background-color: var(--secondary);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-content-inner {
+  padding: 0 24px 24px 24px;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  border-top: 1px solid transparent;
+}
+
+.faq-item.open .faq-content-inner {
+  border-top-color: var(--border);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 16. CONTACT SECTION                                                        */
+/* -------------------------------------------------------------------------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-cols: 1.2fr 1.5fr;
+  gap: 50px;
+}
+
+/* Contact Information Cards */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: 20px;
+}
+
+.contact-detail-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: var(--radius);
+  display: flex;
+  gap: 20px;
+  transition: var(--transition);
+}
+
+.contact-detail-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.contact-detail-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(37, 99, 235, 0.05);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dark .contact-detail-icon {
+  background-color: rgba(14, 165, 233, 0.1);
+  color: var(--secondary);
+}
+
+.contact-detail-text h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.contact-detail-text p {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.contact-detail-text a:hover {
+  color: var(--primary);
+}
+
+/* Map Placeholder */
+.map-placeholder-container {
+  height: 250px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.map-placeholder-bg {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #E2E8F0 0%, #CBD5E1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dark .map-placeholder-bg {
+  background: radial-gradient(circle at center, #1E293B 0%, #0F172A 100%);
+}
+
+.map-grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, #94A3B8 1px, transparent 1px),
+                    linear-gradient(to bottom, #94A3B8 1px, transparent 1px);
+}
+
+.map-marker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  animation: bounce-marker 2s infinite ease-in-out;
+}
+
+.map-marker-pin {
+  width: 36px;
+  height: 36px;
+  background-color: var(--primary);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.map-marker-pin svg {
+  transform: rotate(45deg);
+}
+
+.map-marker-pulse {
+  position: absolute;
+  bottom: -10px;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(37, 99, 235, 0.4);
+  border-radius: var(--radius-full);
+  transform: scale(0.5);
+  animation: pulse-ring 1.5s infinite ease-out;
+}
+
+@keyframes bounce-marker {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.map-overlay-info {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background-color: var(--white);
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  border: 1px solid var(--border);
+  z-index: 2;
+}
+
+/* Contact Form Card */
+.contact-form-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-form-card h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 10px;
+}
+
+.contact-form-card p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-cols: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-heading);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--border-focus);
+  background-color: var(--white);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.dark .form-input:focus {
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-status {
+  display: none;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  animation: fade-in-up 0.3s ease;
+}
+
+.form-status.success {
+  display: block;
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.form-status.error {
+  display: block;
+  background-color: rgba(244, 63, 94, 0.1);
+  color: #F43F5E;
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 17. FOOTER                                                                 */
+/* -------------------------------------------------------------------------- */
+
+footer.site-footer {
+  background-color: var(--dark);
+  color: #94A3B8;
+  padding-top: 80px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-cols: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-brand .logo-title {
+  color: #FFFFFF;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.social-link:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--primary);
+  padding-left: 6px;
+}
+
+.footer-link:hover svg {
+  opacity: 1;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 0.9rem;
+}
+
+.footer-contact-item {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-contact-item svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.footer-bottom {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-link:hover {
+  color: #FFFFFF;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 18. BACK TO TOP BUTTON                                                     */
+/* -------------------------------------------------------------------------- */
+
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--transition);
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-4px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 19. SCROLL ANIMATIONS (REVEAL)                                             */
+/* -------------------------------------------------------------------------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.reveal-fade.active {
+  opacity: 1;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger list anim helper */
+.stagger-parent > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stagger-parent.active > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* We will inject delay using JS helper for stagger children */
+
+/* -------------------------------------------------------------------------- */
+/* 20. RESPONSIVE DESIGN ADJUSTMENTS                                          */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-cols: repeat(3, 1fr);
+  }
+  .tech-grid {
+    grid-template-cols: repeat(4, 1fr);
+  }
+  .portfolio-grid {
+    grid-template-cols: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-cols: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .about-grid {
+    grid-template-cols: 1fr;
+    gap: 40px;
+  }
+  .why-grid {
+    grid-template-cols: 1fr;
+    gap: 40px;
+  }
+  .contact-grid {
+    grid-template-cols: 1fr;
+    gap: 40px;
+  }
+  .footer-top {
+    grid-template-cols: 1fr 1fr;
+    gap: 40px;
+  }
+  .nav-menu, .nav-actions .btn {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .section-title {
+    font-size: 1.85rem;
+  }
+  .services-grid {
+    grid-template-cols: repeat(2, 1fr);
+  }
+  .tech-grid {
+    grid-template-cols: repeat(3, 1fr);
+  }
+  .portfolio-grid {
+    grid-template-cols: 1fr;
+  }
+  .stats-grid {
+    grid-template-cols: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .timeline-line {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 55px;
+    padding-right: 0;
+    text-align: left;
+  }
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+  .timeline-item:nth-child(odd) {
+    text-align: left;
+  }
+  .timeline-item:nth-child(even) .timeline-badge,
+  .timeline-item:nth-child(odd) .timeline-badge {
+    left: 0;
+    right: auto;
+  }
+  .timeline-item:nth-child(odd) .timeline-content {
+    text-align: left;
+  }
+  .form-row {
+    grid-template-cols: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-grid {
+    grid-template-cols: 1fr;
+  }
+  .tech-grid {
+    grid-template-cols: repeat(2, 1fr);
+  }
+  .stats-grid {
+    grid-template-cols: 1fr;
+  }
+  .footer-top {
+    grid-template-cols: 1fr;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  .why-highlights {
+    grid-template-cols: 1fr;
+  }
+  .values-grid {
+    grid-template-cols: 1fr;
+  }
+  .testimonial-card {
+    padding: 24px 16px;
+  }
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+}
+
+
+    /* Font override: ensure Inter & Space Grotesk take priority once loaded */
+    :root {
+      --font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .logo-title, .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen">
+    <div class="loader-spinner"></div>
+    <div class="loader-text">ADELA <span>SOFTWARE</span></div>
+  </div>
+
+  <!-- HEADER & NAVIGATION -->
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">
+          <span class="logo-title">ADELA <span>SOFTWARE</span></span>
+          <span class="logo-subtitle">&amp; KOMPUTER</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active" data-translate="nav-home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-translate="nav-about">About</a></li>
+        <li><a href="#services" class="nav-link" data-translate="nav-services">Services</a></li>
+        <li><a href="#portfolio" class="nav-link" data-translate="nav-portfolio">Portfolio</a></li>
+        <li><a href="#tech" class="nav-link" data-translate="nav-tech">Technology</a></li>
+        <li><a href="#testimonials" class="nav-link" data-translate="nav-testimonials">Testimonials</a></li>
+        <li><a href="#faq" class="nav-link" data-translate="nav-faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a></li>
+      </ul>
+
+      <!-- Actions (Lang & Theme Toggle) -->
+      <div class="nav-actions">
+        <!-- Language Switch -->
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="id">ID</button>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <!-- Sun Icon (SVG) -->
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <!-- Moon Icon (SVG) -->
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Drawer Hamburger -->
+        <button id="hamburger" class="hamburger" aria-label="Menu Toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-nav" class="mobile-nav">
+    <ul class="mobile-nav-menu">
+      <li><a href="#home" class="mobile-nav-link active" data-translate="nav-home">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link" data-translate="nav-about">About</a></li>
+      <li><a href="#services" class="mobile-nav-link" data-translate="nav-services">Services</a></li>
+      <li><a href="#portfolio" class="mobile-nav-link" data-translate="nav-portfolio">Portfolio</a></li>
+      <li><a href="#tech" class="mobile-nav-link" data-translate="nav-tech">Technology</a></li>
+      <li><a href="#testimonials" class="mobile-nav-link" data-translate="nav-testimonials">Testimonials</a></li>
+      <li><a href="#faq" class="mobile-nav-link" data-translate="nav-faq">FAQ</a></li>
+      <li><a href="#contact" class="mobile-nav-link" data-translate="nav-contact">Contact</a></li>
+    </ul>
+    <div class="mobile-nav-actions">
+      <a href="#contact" class="btn btn-primary" data-translate="hero-consult">Get Consultation</a>
+    </div>
+  </div>
+  <div id="overlay-backdrop" class="overlay-backdrop"></div>
+
+  <!-- 1. HERO SECTION -->
+  <section id="home" class="hero-section">
+    <!-- Animated background shapes -->
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+
+    <div class="container hero-grid">
+      <!-- Left Hero Details -->
+      <div class="hero-content reveal-left">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span data-translate="hero-badge">Innovation Leader</span>
+        </div>
+        <h1 class="hero-title">
+          <span data-translate="hero-title-1">Build</span> <br>
+          <span data-translate="hero-title-2">Smart</span> <br>
+          <span data-translate="hero-title-3">Digital Solutions</span>
+        </h1>
+        <p class="hero-subtitle" data-translate="hero-subtitle">
+          Helping businesses, schools, organizations, and institutions build websites, applications, business systems, and digital solutions.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary" data-translate="hero-consult">Get Consultation</a>
+          <a href="#services" class="btn btn-secondary" data-translate="hero-services">Our Services</a>
+        </div>
+      </div>
+
+      <!-- Right Column Visual Illustration -->
+      <div class="hero-illustration reveal-right">
+        <!-- Modern Tech SVG Composition -->
+        <svg class="svg-canvas" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="svgGrad1" x1="0" y1="0" x2="500" y2="500" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#2563EB" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0.8" />
+            </linearGradient>
+            <linearGradient id="gridGrad" x1="0" y1="0" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#2563EB" stop-opacity="0.1" />
+              <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <!-- Grid BG -->
+          <rect width="500" height="500" fill="url(#gridGrad)" rx="24" />
+          <!-- Abstract concentric orbits -->
+          <circle cx="250" cy="250" r="180" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4" />
+          <circle cx="250" cy="250" r="130" stroke="#0EA5E9" stroke-width="2" opacity="0.6" />
+          <circle cx="250" cy="250" r="80" stroke="#06B6D4" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5" />
+          <!-- Center sphere -->
+          <circle cx="250" cy="250" r="45" fill="url(#svgGrad1)" />
+          <circle cx="250" cy="250" r="25" fill="#FFFFFF" opacity="0.2" />
+          <!-- Web Interface Representation (Floating isometric mockup) -->
+          <g transform="translate(140, 150)">
+            <rect width="220" height="140" rx="12" fill="#1E293B" stroke="#475569" stroke-width="2" />
+            <!-- Browser Header bar -->
+            <rect width="220" height="24" rx="12" fill="#0F172A" />
+            <!-- Circles representing window buttons -->
+            <circle cx="16" cy="12" r="4" fill="#EF4444" />
+            <circle cx="28" cy="12" r="4" fill="#F59E0B" />
+            <circle cx="40" cy="12" r="4" fill="#10B981" />
+            <!-- Web body mock -->
+            <rect x="15" y="40" width="110" height="12" rx="4" fill="#3B82F6" />
+            <rect x="15" y="60" width="190" height="6" rx="3" fill="#64748B" opacity="0.6" />
+            <rect x="15" y="72" width="170" height="6" rx="3" fill="#64748B" opacity="0.6" />
+            <rect x="15" y="84" width="130" height="6" rx="3" fill="#64748B" opacity="0.6" />
+            <rect x="15" y="100" width="45" height="18" rx="6" fill="#10B981" />
+            <circle cx="170" cy="100" r="20" fill="#0EA5E9" opacity="0.8" />
+          </g>
+          <!-- Connection lines -->
+          <line x1="250" y1="250" x2="90" y2="120" stroke="#2563EB" stroke-width="2" opacity="0.6" />
+          <line x1="250" y1="250" x2="410" y2="380" stroke="#0EA5E9" stroke-width="2" opacity="0.6" />
+          <line x1="250" y1="250" x2="130" y2="390" stroke="#06B6D4" stroke-width="2" opacity="0.6" />
+        </svg>
+
+        <!-- Floating Dynamic Status Cards -->
+        <div class="floating-cards-container">
+          <!-- Floating card 1 -->
+          <div class="floating-card floating-card-1">
+            <div class="floating-card-icon fc-blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <div class="floating-card-text">
+              <h4 data-translate="fc-1-title">Websites Built</h4>
+              <p data-translate="fc-1-desc">Modern & responsive</p>
+            </div>
+          </div>
+          <!-- Floating card 2 -->
+          <div class="floating-card floating-card-2">
+            <div class="floating-card-icon fc-sky">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <div class="floating-card-text">
+              <h4 data-translate="fc-2-title">Mobile Apps</h4>
+              <p data-translate="fc-2-desc">iOS & Android solutions</p>
+            </div>
+          </div>
+          <!-- Floating card 3 -->
+          <div class="floating-card floating-card-3">
+            <div class="floating-card-icon fc-cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+              </svg>
+            </div>
+            <div class="floating-card-text">
+              <h4 data-translate="fc-3-title">Cloud Scale</h4>
+              <p data-translate="fc-3-desc">High performance & uptime</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT US SECTION -->
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <!-- Left Column Text -->
+      <div class="about-text reveal-left">
+        <div class="section-badge" data-translate="about-badge">About Us</div>
+        <h2 class="section-title" data-translate="about-title">Empowering Organizations Digitally</h2>
+        <p data-translate="about-intro">
+          Adela Software & Komputer is a professional software development agency specializing in crafting high-quality websites, robust custom applications, information systems, and intelligent digital strategies designed to scale your operations.
+        </p>
+
+        <!-- Tab System for Vision & Mission -->
+        <div class="vm-tabs">
+          <button class="vm-tab-btn active" data-tab="vision" data-translate="about-tab-vision">Our Vision</button>
+          <button class="vm-tab-btn" data-tab="mission" data-translate="about-tab-mission">Our Mission</button>
+        </div>
+
+        <!-- Tab contents -->
+        <div id="tab-vision" class="vm-tab-content active">
+          <p data-translate="about-vision">
+            To become the leading and most trusted technology partner in building reliable, innovative, and accessible smart digital solutions that empower institutions and businesses globally.
+          </p>
+        </div>
+        <div id="tab-mission" class="vm-tab-content">
+          <ul class="vm-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-translate="about-mission-1">Deliver exceptional custom software products designed specifically for each client's unique requirements.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-translate="about-mission-2">Maintain the highest standards of security, scalability, and code cleanliness in every project.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span data-translate="about-mission-3">Provide seamless long-term support and maintenance to ensure sustained business continuity.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column Core Values Grid -->
+      <div class="reveal-right">
+        <h3 style="margin-bottom: 24px; font-weight: 800;" data-translate="about-values-title">Our Core Values</h3>
+        <div class="values-grid">
+          <!-- Card 1: Professional -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h4 data-translate="val-prof-title">Professional</h4>
+            <p data-translate="val-prof-desc">Committed to delivering projects on schedule with top-tier craftsmanship and adherence to global standards.</p>
+          </div>
+          <!-- Card 2: Innovation -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+                <path d="M9 18h6M10 22h4"></path>
+              </svg>
+            </div>
+            <h4 data-translate="val-innov-title">Innovation</h4>
+            <p data-translate="val-innov-desc">Always exploring cutting-edge tools, advanced architectures, and modern methodologies to serve you best.</p>
+          </div>
+          <!-- Card 3: Integrity -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h4 data-translate="val-integ-title">Integrity</h4>
+            <p data-translate="val-integ-desc">Earning trust through absolute transparency, rigorous data privacy, and ethical development processes.</p>
+          </div>
+          <!-- Card 4: Collaboration -->
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h4 data-translate="val-collab-title">Collaboration</h4>
+            <p data-translate="val-collab-desc">Working in close harmony with our clients to turn ambitious concepts into seamless functional realities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SERVICES SECTION -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-translate="services-badge">Our Services</div>
+        <h2 class="section-title" data-translate="services-title">Tailored Smart Services</h2>
+        <p class="section-subtitle" data-translate="services-subtitle">Comprehensive solutions engineered to solve operational complexities and accelerate your digital journey.</p>
+      </div>
+
+      <!-- Services 12-Grid -->
+      <div class="services-grid stagger-parent">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-web-title">Website Development</h4>
+          <p class="service-desc" data-translate="s-web-desc">High-performance, beautifully responsive custom websites and landing pages styled to reflect your identity.</p>
+        </div>
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-mob-title">Mobile Application</h4>
+          <p class="service-desc" data-translate="s-mob-desc">Native and cross-platform apps for iOS and Android built for seamless mobile experiences.</p>
+        </div>
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-is-title">Information System</h4>
+          <p class="service-desc" data-translate="s-is-desc">Centralized databases and web-based systems to organize, track, and manage complex institutional data.</p>
+        </div>
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-bs-title">Business System</h4>
+          <p class="service-desc" data-translate="s-bs-desc">Custom ERP, CRM, and bespoke business management software engineered to fit your internal workflows.</p>
+        </div>
+        <!-- Service 5 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="M10 4v16M2 10h20"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-dt-title">Desktop Software</h4>
+          <p class="service-desc" data-translate="s-dt-desc">Secure, robust offline-capable desktop applications for Windows, macOS, and Linux operations.</p>
+        </div>
+        <!-- Service 6 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-6">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-cloud-title">Cloud Deployment</h4>
+          <p class="service-desc" data-translate="s-cloud-desc">Reliable deployment on top clouds with high uptime, robust security, and automatic backups.</p>
+        </div>
+        <!-- Service 7 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-7">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-db-title">Database Design</h4>
+          <p class="service-desc" data-translate="s-db-desc">Optimized relational database schemas ensuring maximum performance, normalization, and absolute safety.</p>
+        </div>
+        <!-- Service 8 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-8">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 11V7a4 4 0 0 0-8 0v4M5 9h14v10H5V9z"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-api-title">API Integration</h4>
+          <p class="service-desc" data-translate="s-api-desc">Seamless connection of external services, payment gateways, shipping logistics, and legacy systems.</p>
+        </div>
+        <!-- Service 9 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-9">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 0 1 7.54 16.59l-1.42-1.42A8 8 0 1 0 6.34 16.5l-1.42 1.42A10 10 0 0 1 12 2zm0 4a6 6 0 0 1 4.5 9.94l-1.42-1.42A4 4 0 1 0 8.92 14.5l-1.42 1.42A6 6 0 0 1 12 6z"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-ai-title">AI Solutions</h4>
+          <p class="service-desc" data-translate="s-ai-desc">Smart features powered by OpenAI and Gemini models to analyze data, classify content, and generate insights.</p>
+        </div>
+        <!-- Service 10 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-10">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-auto-title">Business Automation</h4>
+          <p class="service-desc" data-translate="s-auto-desc">Intelligent background workers, recurring report generation, and automated workflows to reduce manual overhead.</p>
+        </div>
+        <!-- Service 11 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-11">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-dash-title">Intuitive Dashboard</h4>
+          <p class="service-desc" data-translate="s-dash-desc">Elegant analytical interfaces with real-time charts to monitor operations and critical metrics.</p>
+        </div>
+        <!-- Service 12 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper sic-12">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </div>
+          <h4 class="service-title" data-translate="s-maint-title">System Maintenance</h4>
+          <p class="service-desc" data-translate="s-maint-desc">Routine updates, security patch monitoring, continuous performance tuning, and backup validation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHY CHOOSE US -->
+  <section id="why" class="section">
+    <div class="container why-grid">
+      <!-- Left text content -->
+      <div class="why-content reveal-left">
+        <div class="section-badge" data-translate="why-badge">Why Choose Us</div>
+        <h2 class="section-title" data-translate="why-title">Uncompromising Technology Partner</h2>
+        <p data-translate="why-subtitle">We focus on clean code, secure architectures, and long-term partnerships to deliver lasting value.</p>
+        <div style="margin-top: 20px;">
+          <a href="#contact" class="btn btn-primary" data-translate="hero-consult">Get Consultation</a>
+        </div>
+      </div>
+
+      <!-- Right custom highlights grid -->
+      <div class="why-highlights stagger-parent">
+        <!-- Highlight 1 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-team-title">Professional Team</h4>
+            <p data-translate="w-team-desc">Experienced architects, designers, and developers committed to coding excellence.</p>
+          </div>
+        </div>
+        <!-- Highlight 2 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-tech-title">Modern Technology</h4>
+            <p data-translate="w-tech-desc">We leverage fast, secure, and modern frameworks and database layers to guarantee scalability.</p>
+          </div>
+        </div>
+        <!-- Highlight 3 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-sec-title">Secure System</h4>
+            <p data-translate="w-sec-desc">Rigorous attention to cybersecurity, encrypted protocols, and robust authentication shields your data.</p>
+          </div>
+        </div>
+        <!-- Highlight 4 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-scale-title">Highly Scalable</h4>
+            <p data-translate="w-scale-desc">Our products grow smoothly alongside your business metrics and user base sizes without friction.</p>
+          </div>
+        </div>
+        <!-- Highlight 5 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="12" rx="2"></rect>
+              <line x1="2" y1="20" x2="22" y2="20"></line>
+              <line x1="12" y1="16" x2="12" y2="20"></line>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-afford-title">Affordable Price</h4>
+            <p data-translate="w-afford-desc">Transparent quotes adapted perfectly to your institutional budget with maximum quality ROI.</p>
+          </div>
+        </div>
+        <!-- Highlight 6 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 11.08 22 12 12 22 2 12 12 2"></polyline>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-support-title">After Sales Support</h4>
+            <p data-translate="w-support-desc">We stand by our clients with proactive helpdesks, bugfixes, and scheduled systems optimization.</p>
+          </div>
+        </div>
+        <!-- Highlight 7 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-fast-title">Fast Development</h4>
+            <p data-translate="w-fast-desc">Agile methodologies ensure swift production deployment without sacrificing visual polish.</p>
+          </div>
+        </div>
+        <!-- Highlight 8 -->
+        <div class="why-card">
+          <div class="why-card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 22 22 22"></polygon>
+            </svg>
+          </div>
+          <div class="why-card-text">
+            <h4 data-translate="w-custom-title">Custom Solution</h4>
+            <p data-translate="w-custom-desc">We build exactly what you need, with absolute freedom to scale and zero reliance on templated molds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WORKFLOW TIMELINE SECTION -->
+  <section id="workflow" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-translate="workflow-badge">Our Workflow</div>
+        <h2 class="section-title" data-translate="workflow-title">Path to Digital Success</h2>
+        <p class="section-subtitle" data-translate="workflow-subtitle">A structured, transparent engineering lifecycle designed to convert grand ideas into polished production systems.</p>
+      </div>
+
+      <!-- Timeline Scroll visualizer -->
+      <div class="timeline-container">
+        <div class="timeline-line">
+          <div id="timeline-line-glow" class="timeline-line-glow"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">1</div>
+          <div class="timeline-content">
+            <div class="timeline-content-inner">
+              <span class="timeline-step" data-translate="wf-1-step">Step 01</span>
+              <h4 class="timeline-title" data-translate="wf-1-title">Consultation</h4>
+              <p class="timeline-desc" data-translate="wf-1-desc">We sit down to understand your business objectives, technical gaps, project scopes, and success criteria.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">2</div>
+          <div class="timeline-content">
+            <div class="timeline-content-inner">
+              <span class="timeline-step" data-translate="wf-2-step">Step 02</span>
+              <h4 class="timeline-title" data-translate="wf-2-title">Planning</h4>
+              <p class="timeline-desc" data-translate="wf-2-desc">Architecting detailed logic, system requirements, database entities, milestones, and structural flows.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">3</div>
+          <div class="timeline-content">
+            <div class="timeline-content-inner">
+              <span class="timeline-step" data-translate="wf-3-step">Step 03</span>
+              <h4 class="timeline-title" data-translate="wf-3-title">UI/UX Design</h4>
+              <p class="timeline-desc" data-translate="wf-3-desc">Creating high-fidelity wireframes, interactive user flows, and a modern aesthetic aligned with your identity.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">4</div>
+          <div class="timeline-content">
+            <div class="timeline-content-inner">
+              <span class="timeline-step" data-translate="wf-4-step">Step 04</span>
+              <h4 class="timeline-title" data-translate="wf-4-title">Development</h4>
+              <p class="timeline-desc" data-translate="wf-4-desc">Writing pristine, well-documented code using modern languages, clean practices, and responsive structures.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">5</div>
+          <div class="timeline-content">
+            <div class="timeline-content-inner">
+              <span class="timeline-step" data-translate="wf-5-step">Step 05</span>
+              <h4 class="timeline-title" data-translate="wf-5-title">Testing & QA</h4>
+              <p class="timeline-desc" data-translate="wf-5-desc">Rigorous quality assurance, cross-browser compatibility testing, API validation, and vulnerability auditing.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">6</div>
+          <div class="timeline-content">
+            <div class="timeline-content-inner">
+              <span class="timeline-step" data-translate="wf-6-step">Step 06</span>
+              <h4 class="timeline-title" data-translate="wf-6-title">Deployment</h4>
+              <p class="timeline-desc" data-translate="wf-6-desc">Launching your system onto optimized, secure cloud environments with complete server monitoring dashboards.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="timeline-item">
+          <div class="timeline-badge">7</div>
+          <div class="timeline-content">
+            <div class="timeline-content-inner">
+              <span class="timeline-step" data-translate="wf-7-step">Step 07</span>
+              <h4 class="timeline-title" data-translate="wf-7-title">Maintenance</h4>
+              <p class="timeline-desc" data-translate="wf-7-desc">Proactive monthly updates, safety monitoring, cloud resource scaling, and responsive technical helpdesk.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TECH STACK FILTER SECTION -->
+  <section id="tech" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-translate="tech-badge">Tech Stack</div>
+        <h2 class="section-title" data-translate="tech-title">Empowered by Modern Stack</h2>
+        <p class="section-subtitle" data-translate="tech-subtitle">We select reliable, high-performance engines across each engineering tier to maximize product lifetimes.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="tech-tabs reveal">
+        <button class="tech-tab-btn active" data-filter="all" data-translate="tech-cat-all">All Stack</button>
+        <button class="tech-tab-btn" data-filter="frontend" data-translate="tech-cat-frontend">Frontend</button>
+        <button class="tech-tab-btn" data-filter="backend" data-translate="tech-cat-backend">Backend</button>
+        <button class="tech-tab-btn" data-filter="database" data-translate="tech-cat-database">Database</button>
+        <button class="tech-tab-btn" data-filter="cloud" data-translate="tech-cat-cloud">Cloud & OS</button>
+        <button class="tech-tab-btn" data-filter="ai" data-translate="tech-cat-ai">AI & Automation</button>
+      </div>
+
+      <!-- Interactive Grid of tools -->
+      <div class="tech-grid stagger-parent">
+        <!-- React (Frontend) -->
+        <div class="tech-card" data-category="frontend">
+          <div class="tech-icon">
+            <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none" stroke="#61dafb" stroke-width="1">
+              <ellipse rx="11" ry="4.2"></ellipse>
+              <ellipse rx="11" ry="4.2" transform="rotate(60)"></ellipse>
+              <ellipse rx="11" ry="4.2" transform="rotate(120)"></ellipse>
+              <circle r="2" fill="#61dafb"></circle>
+            </svg>
+          </div>
+          <span class="tech-name">React.js</span>
+          <span class="tech-category" data-translate="tech-cat-frontend">Frontend</span>
+        </div>
+        <!-- HTML5 (Frontend) -->
+        <div class="tech-card" data-category="frontend">
+          <div class="tech-icon">
+            <svg viewBox="0 0 512 512" fill="#E34F26">
+              <path d="M71,460 L30,0 L481,0 L440,460 L256,512 Z" />
+              <path d="M256,472 L405,431 L439,53 L256,53 Z" fill="#F06529" />
+              <path d="M256,176 L171,176 L165,116 L256,116 Z" fill="#EBEBEB" />
+              <path d="M256,310 L195,293 L191,248 L133,248 L143,359 L256,390 Z" fill="#EBEBEB" />
+              <path d="M256,116 L347,116 L337,227 L256,227 Z M256,310 L256,390 L321,359 L329,271 L256,271 Z" fill="#FFFFFF" />
+            </svg>
+          </div>
+          <span class="tech-name">HTML5 / CSS3</span>
+          <span class="tech-category" data-translate="tech-cat-frontend">Frontend</span>
+        </div>
+        <!-- JS (Frontend) -->
+        <div class="tech-card" data-category="frontend">
+          <div class="tech-icon">
+            <rect width="100%" height="100%" fill="#F7DF1E" />
+            <svg viewBox="0 0 100 100" width="100%" height="100%">
+              <text x="50" y="80" fill="#000000" font-family="Arial, sans-serif" font-weight="900" font-size="40" text-anchor="middle">JS</text>
+            </svg>
+          </div>
+          <span class="tech-name">Vanilla ES6</span>
+          <span class="tech-category" data-translate="tech-cat-frontend">Frontend</span>
+        </div>
+        <!-- Tailwind -->
+        <div class="tech-card" data-category="frontend">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+              <path d="M12 3c-1.2 0-2.4.6-3.6 1.8C6 7.2 4.8 10.8 4.8 15c0 4.2 1.2 6 3.6 6 2.4 0 3.6-1.8 3.6-6H9.6c0-2.4.6-3.6 1.8-4.8C12.6 9 13.8 5.4 13.8 3h-1.8z"></path>
+              <path d="M19.2 9c-1.2 0-2.4.6-3.6 1.8-2.4 2.4-3.6 6-3.6 10.2 0 4.2 1.2 6 3.6 6 2.4 0 3.6-1.8 3.6-6h-2.4c0-2.4.6-3.6 1.8-4.8 1.2-1.2 2.4-4.8 2.4-7.2h-1.8z" opacity="0.5"></path>
+            </svg>
+          </div>
+          <span class="tech-name">Tailwind CSS</span>
+          <span class="tech-category" data-translate="tech-cat-frontend">Frontend</span>
+        </div>
+        <!-- Node.js (Backend) -->
+        <div class="tech-card" data-category="backend">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="#339933">
+              <path d="M12 2L2 7.7v11.6L12 22l10-5.7V7.7L12 2zm8 16l-8 4.6-8-4.6V8.9l8-4.6 8 4.6v9.1z"/>
+            </svg>
+          </div>
+          <span class="tech-name">Node.js</span>
+          <span class="tech-category" data-translate="tech-cat-backend">Backend</span>
+        </div>
+        <!-- PHP (Backend) -->
+        <div class="tech-card" data-category="backend">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="#777BB4">
+              <ellipse cx="12" cy="12" rx="10" ry="6"></ellipse>
+              <path d="M7 9h2v6H7zm8 0h2v6h-2zm-4 0a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9V9h2z" fill="#FFFFFF" />
+            </svg>
+          </div>
+          <span class="tech-name">PHP / Laravel</span>
+          <span class="tech-category" data-translate="tech-cat-backend">Backend</span>
+        </div>
+        <!-- Python (Backend) -->
+        <div class="tech-card" data-category="backend">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3776AB" stroke-width="2">
+              <path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm-1 3h2v3h-2zm0 11h2v3h-2z" />
+            </svg>
+          </div>
+          <span class="tech-name">Python FastAPI</span>
+          <span class="tech-category" data-translate="tech-cat-backend">Backend</span>
+        </div>
+        <!-- MySQL (Database) -->
+        <div class="tech-card" data-category="database">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="#00758F">
+              <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
+              <path d="M4 6v6c0 1.66 4 3 8 3s8-1.34 8-3V6"></path>
+              <path d="M4 12v6c0 1.66 4 3 8 3s8-1.34 8-3v-6"></path>
+            </svg>
+          </div>
+          <span class="tech-name">MySQL / MariaDB</span>
+          <span class="tech-category" data-translate="tech-cat-database">Database</span>
+        </div>
+        <!-- PostgreSQL (Database) -->
+        <div class="tech-card" data-category="database">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="#336791">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+            </svg>
+          </div>
+          <span class="tech-name">PostgreSQL</span>
+          <span class="tech-category" data-translate="tech-cat-database">Database</span>
+        </div>
+        <!-- Linux / Ubuntu -->
+        <div class="tech-card" data-category="cloud">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="#E95420">
+              <circle cx="12" cy="12" r="10" stroke="#FFFFFF" stroke-width="1.5"></circle>
+              <circle cx="12" cy="12" r="4" fill="#FFFFFF"></circle>
+            </svg>
+          </div>
+          <span class="tech-name">Linux VPS</span>
+          <span class="tech-category" data-translate="tech-cat-cloud">Cloud & OS</span>
+        </div>
+        <!-- Docker (Cloud) -->
+        <div class="tech-card" data-category="cloud">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="#2496ED">
+              <rect x="2" y="10" width="20" height="8" rx="2"></rect>
+              <rect x="4" y="6" width="3" height="3" rx="0.5"></rect>
+              <rect x="8" y="6" width="3" height="3" rx="0.5"></rect>
+              <rect x="12" y="6" width="3" height="3" rx="0.5"></rect>
+            </svg>
+          </div>
+          <span class="tech-name">Docker Engine</span>
+          <span class="tech-category" data-translate="tech-cat-cloud">Cloud & OS</span>
+        </div>
+        <!-- OpenAI / Gemini (AI) -->
+        <div class="tech-card" data-category="ai">
+          <div class="tech-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#10a37f" stroke-width="2">
+              <path d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4a4 4 0 0 1-4 4z"></path>
+            </svg>
+          </div>
+          <span class="tech-name">AI Core Integration</span>
+          <span class="tech-category" data-translate="tech-cat-ai">AI & Automation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. PORTFOLIO SHOWCASE SECTION -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-translate="portfolio-badge">Our Portfolio</div>
+        <h2 class="section-title" data-translate="portfolio-title">Proven Solutions Implemented</h2>
+        <p class="section-subtitle" data-translate="portfolio-subtitle">Explore a showcase of systems built for enterprises, academic institutions, and growing startups.</p>
+      </div>
+
+      <!-- Portfolio tabs -->
+      <div class="portfolio-tabs reveal">
+        <button class="portfolio-tab-btn active" data-filter="all" data-translate="port-cat-all">All Projects</button>
+        <button class="portfolio-tab-btn" data-filter="web" data-translate="port-cat-web">Websites</button>
+        <button class="portfolio-tab-btn" data-filter="app" data-translate="port-cat-app">Mobile Apps</button>
+        <button class="portfolio-tab-btn" data-filter="sys" data-translate="port-cat-sys">Management Systems</button>
+        <button class="portfolio-tab-btn" data-filter="dash" data-translate="port-cat-dash">Dashboards</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid stagger-parent">
+        <!-- Project 1: Corporate website -->
+        <div class="portfolio-card" data-category="web">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <h5 data-translate="p-1-title">Corporate Website</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-web">Websites</span>
+            <h4 class="portfolio-title" data-translate="p-1-title">Corporate Website</h4>
+            <p class="portfolio-desc" data-translate="p-1-desc">Modern, secure multi-page corporate website featuring interactive dashboards and localized services.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">React.js</span>
+              <span class="portfolio-tag">Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: School Portal -->
+        <div class="portfolio-card" data-category="web">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5zM6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+              </svg>
+              <h5 data-translate="p-2-title">School Portal</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-web">Websites</span>
+            <h4 class="portfolio-title" data-translate="p-2-title">School Portal</h4>
+            <p class="portfolio-desc" data-translate="p-2-desc">High-traffic institutional portal with online admissions, course syllabus viewers, and news feeds.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">PHP</span>
+              <span class="portfolio-tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Smart Inventory System -->
+        <div class="portfolio-card" data-category="sys">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              </svg>
+              <h5 data-translate="p-3-title">Smart Inventory System</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-sys">Management Systems</span>
+            <h4 class="portfolio-title" data-translate="p-3-title">Smart Inventory System</h4>
+            <p class="portfolio-desc" data-translate="p-3-desc">Cloud-hosted multi-warehouse tracking software featuring real-time stock alert thresholds.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">FastAPI</span>
+              <span class="portfolio-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Cloud POS -->
+        <div class="portfolio-card" data-category="sys">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="4" width="20" height="12" rx="2"></rect>
+                <line x1="2" y1="20" x2="22" y2="20"></line>
+              </svg>
+              <h5 data-translate="p-4-title">Cloud Point of Sale</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-sys">Management Systems</span>
+            <h4 class="portfolio-title" data-translate="p-4-title">Cloud Point of Sale</h4>
+            <p class="portfolio-desc" data-translate="p-4-desc">Lightweight, responsive sales register for multi-branch operations with integrated offline state.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">React.js</span>
+              <span class="portfolio-tag">NodeJS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Academic Info System -->
+        <div class="portfolio-card" data-category="sys">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <h5 data-translate="p-5-title">Academic Info System</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-sys">Management Systems</span>
+            <h4 class="portfolio-title" data-translate="p-5-title">Academic Info System</h4>
+            <p class="portfolio-desc" data-translate="p-5-desc">Comprehensive database system for grading scales, student timelines, and institutional report cards.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Laravel</span>
+              <span class="portfolio-tag">MariaDB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Organization Platform -->
+        <div class="portfolio-card" data-category="web">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+              </svg>
+              <h5 data-translate="p-6-title">Organization Platform</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-web">Websites</span>
+            <h4 class="portfolio-title" data-translate="p-6-title">Organization Platform</h4>
+            <p class="portfolio-desc" data-translate="p-6-desc">Custom membership network hub featuring secure billing gateways and dynamic discussion threads.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">React.js</span>
+              <span class="portfolio-tag">API Integration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: Executive Dashboard -->
+        <div class="portfolio-card" data-category="dash">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+              <h5 data-translate="p-7-title">Executive Dashboard</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-dash">Dashboards</span>
+            <h4 class="portfolio-title" data-translate="p-7-title">Executive Dashboard</h4>
+            <p class="portfolio-desc" data-translate="p-7-desc">Real-time metrics visualizer aggregating sales, resource uptimes, and user retention charts.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">React.js</span>
+              <span class="portfolio-tag">D3 / Recharts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8: Booking Schedule System -->
+        <div class="portfolio-card" data-category="sys">
+          <div class="portfolio-image">
+            <div class="portfolio-placeholder">
+              <svg class="portfolio-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <h5 data-translate="p-8-title">Appointment Booking System</h5>
+            </div>
+            <div class="portfolio-overlay">
+              <a href="#contact" class="portfolio-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="portfolio-category" data-translate="port-cat-sys">Management Systems</span>
+            <h4 class="portfolio-title" data-translate="p-8-title">Appointment Booking System</h4>
+            <p class="portfolio-desc" data-translate="p-8-desc">Bespoke online reservation schedule system with automated WhatsApp and Email confirmations.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">NodeJS</span>
+              <span class="portfolio-tag">WA Gateway</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. STATISTICS SECTION (Dynamic Counter on Scroll) -->
+  <section id="statistics" class="stats-section">
+    <!-- Concentric orbit visual details in bg -->
+    <div class="container stats-grid">
+      <!-- Stat 1 -->
+      <div class="stat-item">
+        <div class="stat-num-wrapper">
+          <span class="stat-num" data-target="250" data-suffix="+">0</span>
+        </div>
+        <div class="stat-label" data-translate="stat-proj-label">Projects Completed</div>
+      </div>
+      <!-- Stat 2 -->
+      <div class="stat-item">
+        <div class="stat-num-wrapper">
+          <span class="stat-num" data-target="150" data-suffix="+">0</span>
+        </div>
+        <div class="stat-label" data-translate="stat-cli-label">Active Clients</div>
+      </div>
+      <!-- Stat 3 -->
+      <div class="stat-item">
+        <div class="stat-num-wrapper">
+          <span class="stat-num" data-target="8" data-suffix="">0</span>
+        </div>
+        <div class="stat-label" data-translate="stat-exp-label">Years Experience</div>
+      </div>
+      <!-- Stat 4 -->
+      <div class="stat-item">
+        <div class="stat-num-wrapper">
+          <span class="stat-num" data-target="99.9" data-suffix="%">0</span>
+        </div>
+        <div class="stat-label" data-translate="stat-sup-label">Technical Support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9b. TESTIMONIALS SECTION -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-translate="test-badge">Testimonials</div>
+        <h2 class="section-title" data-translate="test-title">What Our Partners Say</h2>
+        <p class="section-subtitle" data-translate="test-subtitle">We take immense pride in building relationships that fuel growth and digital reliability.</p>
+      </div>
+
+      <div class="testimonial-container reveal">
+        <div class="testimonial-slider" id="testimonial-slider">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"></path>
+              </svg>
+              <div class="testimonial-stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+              </div>
+              <p class="testimonial-text" data-translate="t1-review">"Adela Software successfully modernised our complete tracking system. The new cloud dashboard has dramatically reduced internal lookup delays, and their post-delivery maintenance team is incredibly responsive."</p>
+              <div class="testimonial-author">
+                <img class="testimonial-avatar" src="https://ui-avatars.com/api/?name=Hendrawan+Prasetyo&background=2563EB&color=fff" alt="Hendrawan Prasetyo" loading="lazy">
+                <div class="testimonial-name" data-translate="t1-name">Hendrawan Prasetyo</div>
+                <div class="testimonial-company" data-translate="t1-company">CTO, Amanah Logistics Corp</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"></path>
+              </svg>
+              <div class="testimonial-stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+              </div>
+              <p class="testimonial-text" data-translate="t2-review">"The academic portal they delivered was intuitive enough for students, parents, and administrative staff alike. Our enrollment processes are now fully automated and secured on Cloud servers."</p>
+              <div class="testimonial-author">
+                <img class="testimonial-avatar" src="https://ui-avatars.com/api/?name=Siti+Rahmawati&background=0EA5E9&color=fff" alt="Siti Rahmawati" loading="lazy">
+                <div class="testimonial-name" data-translate="t2-name">Siti Rahmawati</div>
+                <div class="testimonial-company" data-translate="t2-company">Director, Yayasan Pendidikan Nusantara</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <svg class="testimonial-quote-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"></path>
+              </svg>
+              <div class="testimonial-stars">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.771l-7.416 3.642 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
+              </div>
+              <p class="testimonial-text" data-translate="t3-review">"We requested a highly scalable POS system with offline functionality. Adela delivered a fast, flawless solution that syncs perfectly the moment internet returns. Exceptional engineering team!"</p>
+              <div class="testimonial-author">
+                <img class="testimonial-avatar" src="https://ui-avatars.com/api/?name=David+Christian&background=06B6D4&color=fff" alt="David Christian" loading="lazy">
+                <div class="testimonial-name" data-translate="t3-name">David Christian</div>
+                <div class="testimonial-company" data-translate="t3-company">Founder, Pinnacle Retail Group</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-controls">
+          <button class="slider-arrow" id="slider-prev" aria-label="Previous testimonial">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
+          </button>
+          <div class="slider-dots" id="slider-dots"></div>
+          <button class="slider-arrow" id="slider-next" aria-label="Next testimonial">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 10. FAQ SECTION -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-translate="faq-badge">FAQ</div>
+        <h2 class="section-title" data-translate="faq-title">Common Technical Questions</h2>
+        <p class="section-subtitle" data-translate="faq-subtitle">Got technical inquiries? We compile some answers regarding how we run projects, maintain codes, and structure fees.</p>
+      </div>
+
+      <!-- Accordion Grid -->
+      <div class="faq-container stagger-parent">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span class="faq-question" data-translate="q-1">What technologies does Adela Software specialize in?</span>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <div class="faq-content-inner" data-translate="a-1">
+              We are proficient in modern stacks across the full pipeline. On the frontend, we build lightweight responsive templates (HTML5, CSS3, JavaScript). On the backend, we write secure servers using Node.js, PHP, or Python. For databases, we architect relational schemas using MySQL, PostgreSQL, and SQLite. We host and manage systems on VPS networks and Docker containers under secure Linux distributions.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span class="faq-question" data-translate="q-2">Will I have complete ownership of the system and its source code?</span>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <div class="faq-content-inner" data-translate="a-2">
+              Absolutely. Once development milestones are concluded and final releases are deployed, 100% of the custom source code, operational licenses, and intellectual property are transferred completely to you. We hold no proprietary locks over your custom assets.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span class="faq-question" data-translate="q-3">Do you offer post-launch technical assistance and updates?</span>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <div class="faq-content-inner" data-translate="a-3">
+              Yes, every custom development project includes a complimentary maintenance period (such as 3 to 6 months) which covers minor bug fixes, server uptime audits, performance optimization, and data security reviews. Extended maintenance SLA support contracts are also available.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span class="faq-question" data-translate="q-4">How is the development budget calculated and paid?</span>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <div class="faq-content-inner" data-translate="a-4">
+              Budgets are calculated clearly based on features, UI complexities, and integration scopes. We provide detailed line-by-line transparent project estimates. Payments are divided into milestones (such as an initial planning deposit, active development milestones, and a final deployment release sign-off).
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span class="faq-question" data-translate="q-5">Can you upgrade or optimize our existing legacy systems?</span>
+            <div class="faq-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <div class="faq-content-inner" data-translate="a-5">
+              Yes, we regularly assist organizations in refactoring old codes, migrating databases from deprecated layouts to secure PostgreSQL/MySQL designs, and building modern, responsive frontend dashboards that pull data from legacy backend pipelines via secure custom RESTful APIs.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. CONTACT US SECTION -->
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <!-- Left Info Col -->
+      <div class="contact-info-col reveal-left">
+        <div class="section-badge" data-translate="contact-badge">Contact Us</div>
+        <h2 class="section-title" data-translate="contact-title">Let's Start Your Solutions</h2>
+        <p data-translate="contact-subtitle">Ready to digitalise your workflows? Contact us for a free technical consultation and transparent project quote.</p>
+
+        <div class="contact-cards-grid">
+          <!-- Card 1 Address -->
+          <div class="contact-detail-card">
+            <div class="contact-detail-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4 data-translate="c-card-addr-title">Office Address</h4>
+              <p data-translate="c-card-addr-val">Perum Sukodono Permai Block C-4 Kebonagung, Sukodono, Sidoarjo, East Java, Indonesia</p>
+            </div>
+          </div>
+
+          <!-- Card 2 Contact lines -->
+          <div class="contact-detail-card">
+            <div class="contact-detail-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4 data-translate="c-card-email-title">Email Support</h4>
+              <p><a href="mailto:adela.groupcenter@gmail.com">adela.groupcenter@gmail.com</a></p>
+            </div>
+          </div>
+
+          <!-- Card 3 WhatsApp & Hours -->
+          <div class="contact-detail-card">
+            <div class="contact-detail-icon" style="background-color: rgba(34, 197, 94, 0.1); color: #22C55E;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4 data-translate="c-card-wa-title">Direct WhatsApp</h4>
+              <p><a href="https://wa.me/6285111305026" target="_blank" style="color: #22C55E; font-weight: 700;">+62 851-1130-5026</a></p>
+              <h4 data-translate="c-card-hours-title" style="margin-top: 10px;">Business Hours</h4>
+              <p data-translate="c-card-hours-val">Monday - Friday: 08:00 AM - 05:00 PM<br>Saturday: 08:00 AM - 01:00 PM (UTC+7)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Maps Embedded Map -->
+        <div class="map-placeholder-container">
+          <iframe 
+            src="https://maps.google.com/maps?q=Perum%20Sukodono%20Permai%20Block%20C-4%20Kebonagung,%20Sukodono,%20Sidoarjo&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0; display:block;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Right Contact Form Card -->
+      <div class="contact-form-card reveal-right">
+        <h3 data-translate="c-form-title">Send Message</h3>
+        <p data-translate="c-form-subtitle">Have a specific project scope? Fill in the details below and we will send a tailored estimate.</p>
+
+        <!-- Status alerting box -->
+        <div id="form-status" class="form-status"></div>
+
+        <form id="adela-contact-form" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form_name" class="form-label" data-translate="f-lbl-name">Your Name</label>
+              <input type="text" id="form_name" class="form-input" data-translate-placeholder="f-ph-name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="form_email" class="form-label" data-translate="f-lbl-email">Email Address</label>
+              <input type="email" id="form_email" class="form-input" data-translate-placeholder="f-ph-email" placeholder="john@company.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="form_phone" class="form-label" data-translate="f-lbl-phone">Phone Number</label>
+            <input type="tel" id="form_phone" class="form-input" data-translate-placeholder="f-ph-phone" placeholder="+62 851-1130-5026">
+          </div>
+
+          <div class="form-group">
+            <label for="form_message" class="form-label" data-translate="f-lbl-msg">Your Message</label>
+            <textarea id="form_message" class="form-input" data-translate-placeholder="f-ph-msg" placeholder="Briefly describe your application needs, desired features, or technical questions here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <span data-translate="f-btn-submit">Send Proposal Request</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <!-- Col 1 Brand -->
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <div class="logo-icon" style="box-shadow: none;">A</div>
+          <div class="logo-text">
+            <span class="logo-title">ADELA <span>SOFTWARE</span></span>
+            <span class="logo-subtitle">&amp; KOMPUTER</span>
+          </div>
+        </a>
+        <p class="footer-desc" data-translate="f-brand-tagline">
+          Adela Software & Komputer is dedicated to building robust, accessible, and high-performance digital systems for institutions and enterprises globally.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Github">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2 Quick Links -->
+      <div class="footer-col">
+        <h4 data-translate="f-col-links-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="#home" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="nav-home">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="nav-about">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="nav-services">Services</span>
+            </a>
+          </li>
+          <li>
+            <a href="#portfolio" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="nav-portfolio">Portfolio</span>
+            </a>
+          </li>
+          <li>
+            <a href="#faq" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="nav-faq">FAQ</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 3 Key Services -->
+      <div class="footer-col">
+        <h4 data-translate="f-col-srv-title">Key Services</h4>
+        <ul class="footer-links">
+          <li>
+            <a href="#services" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="s-web-title">Website Development</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="s-mob-title">Mobile Application</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="s-is-title">Information System</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services" class="footer-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span data-translate="s-bs-title">Business System</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4 Contact Detail Support -->
+      <div class="footer-col">
+        <h4 data-translate="nav-contact">Contact</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span data-translate="c-card-addr-val">Perum Sukodono Permai Block C-4 Kebonagung, Sukodono, Sidoarjo, East Java, Indonesia</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+            </svg>
+            <span><a href="https://wa.me/6285111305026" target="_blank" style="color: inherit;">+62 851-1130-5026</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span><a href="mailto:adela.groupcenter@gmail.com" style="color: inherit;">adela.groupcenter@gmail.com</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="container footer-bottom">
+      <span data-translate="f-bottom-rights">© 2026 Adela Software & Komputer. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#" class="footer-bottom-link" data-translate="f-bottom-terms">Terms of Service</a>
+        <a href="#" class="footer-bottom-link" data-translate="f-bottom-privacy">Privacy Policy</a>
+        <a href="#" class="footer-bottom-link" data-translate="f-bottom-sitemap">Sitemap</a>
+        <span style="color: #22c55e; display: inline-flex; align-items: center; gap: 6px;">
+          <span style="width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%; display: inline-block; animation: pulse-ring 1.5s infinite;"></span>
+          <span data-translate="f-status-online">Systems Online</span>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BACK TO TOP BUTTON -->
+  <button id="back-to-top" aria-label="Scroll back to top">
+    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- JS ENGINE INJECTION -->
+  <script>
+/*
+ * Adela Software & Komputer - JavaScript Core Engine
+ * Bilingual Support, Theme Engine, Animations, Filters & Interactivity
+ */
+
+// -------------------------------------------------------------------------- //
+// 1. BILINGUAL TRANSLATIONS DICTIONARY                                       //
+// -------------------------------------------------------------------------- //
+
+const translations = {
+  en: {
+    // Navigation
+    "nav-home": "Home",
+    "nav-about": "About",
+    "nav-services": "Services",
+    "nav-portfolio": "Portfolio",
+    "nav-tech": "Technology",
+    "nav-testimonials": "Testimonials",
+    "nav-faq": "FAQ",
+    "nav-contact": "Contact",
+
+    // Hero Section
+    "hero-badge": "Innovation Leader",
+    "hero-title-1": "Build",
+    "hero-title-2": "Smart",
+    "hero-title-3": "Digital Solutions",
+    "hero-subtitle": "Helping businesses, schools, organizations, and institutions build websites, applications, business systems, and digital solutions.",
+    "hero-consult": "Get Consultation",
+    "hero-services": "Our Services",
+    "hero-trust": "Trusted by <span>200+</span> clients and partners",
+    "fc-1-title": "Websites Built",
+    "fc-1-desc": "Modern & responsive",
+    "fc-2-title": "Mobile Apps",
+    "fc-2-desc": "iOS & Android solutions",
+    "fc-3-title": "Cloud Scale",
+    "fc-3-desc": "High performance & uptime",
+
+    // About Section
+    "about-badge": "About Us",
+    "about-title": "Empowering Organizations Digitally",
+    "about-intro": "Adela Software & Komputer is a professional software development agency specializing in crafting high-quality websites, robust custom applications, information systems, and intelligent digital strategies designed to scale your operations.",
+    "about-tab-vision": "Our Vision",
+    "about-tab-mission": "Our Mission",
+    "about-vision": "To become the leading and most trusted technology partner in building reliable, innovative, and accessible smart digital solutions that empower institutions and businesses globally.",
+    "about-mission-1": "Deliver exceptional custom software products designed specifically for each client's unique requirements.",
+    "about-mission-2": "Maintain the highest standards of security, scalability, and code cleanliness in every project.",
+    "about-mission-3": "Provide seamless long-term support and maintenance to ensure sustained business continuity.",
+    "about-values-title": "Our Core Values",
+    "val-prof-title": "Professional",
+    "val-prof-desc": "Committed to delivering projects on schedule with top-tier craftsmanship and adherence to global standards.",
+    "val-innov-title": "Innovation",
+    "val-innov-desc": "Always exploring cutting-edge tools, advanced architectures, and modern methodologies to serve you best.",
+    "val-integ-title": "Integrity",
+    "val-integ-desc": "Earning trust through absolute transparency, rigorous data privacy, and ethical development processes.",
+    "val-collab-title": "Collaboration",
+    "val-collab-desc": "Working in close harmony with our clients to turn ambitious concepts into seamless functional realities.",
+
+    // Services Section
+    "services-badge": "Our Services",
+    "services-title": "Tailored Smart Services",
+    "services-subtitle": "Comprehensive solutions engineered to solve operational complexities and accelerate your digital journey.",
+    "s-web-title": "Website Development",
+    "s-web-desc": "High-performance, beautifully responsive custom websites and landing pages styled to reflect your identity.",
+    "s-mob-title": "Mobile Application",
+    "s-mob-desc": "Native and cross-platform apps for iOS and Android built for seamless mobile experiences.",
+    "s-is-title": "Information System",
+    "s-is-desc": "Centralized databases and web-based systems to organize, track, and manage complex institutional data.",
+    "s-bs-title": "Business System",
+    "s-bs-desc": "Custom ERP, CRM, and bespoke business management software engineered to fit your internal workflows.",
+    "s-dt-title": "Desktop Software",
+    "s-dt-desc": "Secure, robust offline-capable desktop applications for Windows, macOS, and Linux operations.",
+    "s-cloud-title": "Cloud Deployment",
+    "s-cloud-desc": "Reliable deployment on top clouds with high uptime, robust security, and automatic backups.",
+    "s-db-title": "Database Design",
+    "s-db-desc": "Optimized relational database schemas ensuring maximum performance, normalization, and absolute safety.",
+    "s-api-title": "API Integration",
+    "s-api-desc": "Seamless connection of external services, payment gateways, shipping logistics, and legacy systems.",
+    "s-ai-title": "AI Solutions",
+    "s-ai-desc": "Smart features powered by OpenAI and Gemini models to analyze data, classify content, and generate insights.",
+    "s-auto-title": "Business Automation",
+    "s-auto-desc": "Intelligent background workers, recurring report generation, and automated workflows to reduce manual overhead.",
+    "s-dash-title": "Intuitive Dashboard",
+    "s-dash-desc": "Elegant analytical interfaces with real-time charts to monitor operations and critical metrics.",
+    "s-maint-title": "System Maintenance",
+    "s-maint-desc": "Routine updates, security patch monitoring, continuous performance tuning, and backup validation.",
+
+    // Why Choose Us Section
+    "why-badge": "Why Choose Us",
+    "why-title": "Uncompromising Technology Partner",
+    "why-subtitle": "We focus on clean code, secure architectures, and long-term partnerships to deliver lasting value.",
+    "w-team-title": "Professional Team",
+    "w-team-desc": "Experienced architects, designers, and developers committed to coding excellence.",
+    "w-tech-title": "Modern Technology",
+    "w-tech-desc": "We leverage fast, secure, and modern frameworks and database layers to guarantee scalability.",
+    "w-sec-title": "Secure System",
+    "w-sec-desc": "Rigorous attention to cybersecurity, encrypted protocols, and robust authentication shields your data.",
+    "w-scale-title": "Highly Scalable",
+    "w-scale-desc": "Our products grow smoothly alongside your business metrics and user base sizes without friction.",
+    "w-afford-title": "Affordable Price",
+    "w-afford-desc": "Transparent quotes adapted perfectly to your institutional budget with maximum quality ROI.",
+    "w-support-title": "After Sales Support",
+    "w-support-desc": "We stand by our clients with proactive helpdesks, bugfixes, and scheduled systems optimization.",
+    "w-fast-title": "Fast Development",
+    "w-fast-desc": "Agile methodologies ensure swift production deployment without sacrificing visual polish.",
+    "w-custom-title": "Custom Solution",
+    "w-custom-desc": "We build exactly what you need, with absolute freedom to scale and zero reliance on templated molds.",
+
+    // Workflow Section
+    "workflow-badge": "Our Workflow",
+    "workflow-title": "Path to Digital Success",
+    "workflow-subtitle": "A structured, transparent engineering lifecycle designed to convert grand ideas into polished production systems.",
+    "wf-1-step": "Step 01",
+    "wf-1-title": "Consultation",
+    "wf-1-desc": "We sit down to understand your business objectives, technical gaps, project scopes, and success criteria.",
+    "wf-2-step": "Step 02",
+    "wf-2-title": "Planning",
+    "wf-2-desc": "Architecting detailed logic, system requirements, database entities, milestones, and structural flows.",
+    "wf-3-step": "Step 03",
+    "wf-3-title": "UI/UX Design",
+    "wf-3-desc": "Creating high-fidelity wireframes, interactive user flows, and a modern aesthetic aligned with your identity.",
+    "wf-4-step": "Step 04",
+    "wf-4-title": "Development",
+    "wf-4-desc": "Writing pristine, well-documented code using modern languages, clean practices, and responsive structures.",
+    "wf-5-step": "Step 05",
+    "wf-5-title": "Testing & QA",
+    "wf-5-desc": "Rigorous quality assurance, cross-browser compatibility testing, API validation, and vulnerability auditing.",
+    "wf-6-step": "Step 06",
+    "wf-6-title": "Deployment",
+    "wf-6-desc": "Launching your system onto optimized, secure cloud environments with complete server monitoring dashboards.",
+    "wf-7-step": "Step 07",
+    "wf-7-title": "Maintenance",
+    "wf-7-desc": "Proactive monthly updates, safety monitoring, cloud resource scaling, and responsive technical helpdesk.",
+
+    // Tech Stack Section
+    "tech-badge": "Tech Stack",
+    "tech-title": "Empowered by Modern Stack",
+    "tech-subtitle": "We select reliable, high-performance engines across each engineering tier to maximize product lifetimes.",
+    "tech-cat-all": "All Stack",
+    "tech-cat-frontend": "Frontend",
+    "tech-cat-backend": "Backend",
+    "tech-cat-database": "Database",
+    "tech-cat-cloud": "Cloud & OS",
+    "tech-cat-ai": "AI & Automation",
+
+    // Portfolio Section
+    "portfolio-badge": "Our Portfolio",
+    "portfolio-title": "Proven Solutions Implemented",
+    "portfolio-subtitle": "Explore a showcase of systems built for enterprises, academic institutions, and growing startups.",
+    "port-cat-all": "All Projects",
+    "port-cat-web": "Websites",
+    "port-cat-app": "Mobile Apps",
+    "port-cat-sys": "Management Systems",
+    "port-cat-dash": "Dashboards",
+    "p-1-title": "Corporate Website",
+    "p-1-desc": "Modern, secure multi-page corporate website featuring interactive dashboards and localized services.",
+    "p-2-title": "School Portal",
+    "p-2-desc": "High-traffic institutional portal with online admissions, course syllabus viewers, and news feeds.",
+    "p-3-title": "Smart Inventory System",
+    "p-3-desc": "Cloud-hosted multi-warehouse tracking software featuring real-time stock alert thresholds.",
+    "p-4-title": "Cloud Point of Sale",
+    "p-4-desc": "Lightweight, responsive sales register for multi-branch operations with integrated offline state.",
+    "p-5-title": "Academic Info System",
+    "p-5-desc": "Comprehensive database system for grading scales, student timelines, and institutional report cards.",
+    "p-6-title": "Organization Platform",
+    "p-6-desc": "Custom membership network hub featuring secure billing gateways and dynamic discussion threads.",
+    "p-7-title": "Executive Dashboard",
+    "p-7-desc": "Real-time metrics visualizer aggregating sales, resource uptimes, and user retention charts.",
+    "p-8-title": "Appointment Booking System",
+    "p-8-desc": "Bespoke online reservation schedule system with automated WhatsApp and Email confirmations.",
+
+    // Statistics Section
+    "stat-proj-label": "Projects Completed",
+    "stat-cli-label": "Active Clients",
+    "stat-exp-label": "Years Experience",
+    "stat-sup-label": "Technical Support",
+
+    // Testimonials Section
+    "test-badge": "Testimonials",
+    "test-title": "What Our Partners Say",
+    "test-subtitle": "We take immense pride in building relationships that fuel growth and digital reliability.",
+    "t1-review": '"Adela Software successfully modernised our complete tracking system. The new cloud dashboard has dramatically reduced internal lookup delays, and their post-delivery maintenance team is incredibly responsive."',
+    "t1-name": "Hendrawan Prasetyo",
+    "t1-company": "CTO, Amanah Logistics Corp",
+    "t2-review": '"The academic portal they delivered was intuitive enough for students, parents, and administrative staff alike. Our enrollment processes are now fully automated and secured on Cloud servers."',
+    "t2-name": "Siti Rahmawati",
+    "t2-company": "Director, Yayasan Pendidikan Nusantara",
+    "t3-review": '"We requested a highly scalable POS system with offline functionality. Adela delivered a fast, flawless solution that syncs perfectly the moment internet returns. Exceptional engineering team!"',
+    "t3-name": "David Christian",
+    "t3-company": "Founder, Pinnacle Retail Group",
+
+    // FAQ Section
+    "faq-badge": "FAQ",
+    "faq-title": "Common Technical Questions",
+    "faq-subtitle": "Got technical inquiries? We compile some answers regarding how we run projects, maintain codes, and structure fees.",
+    "q-1": "What technologies does Adela Software specialize in?",
+    "a-1": "We are proficient in modern stacks across the full pipeline. On the frontend, we build lightweight responsive templates (HTML5, CSS3, JavaScript). On the backend, we write secure servers using Node.js, PHP, or Python. For databases, we architect relational schemas using MySQL, PostgreSQL, and SQLite. We host and manage systems on VPS networks and Docker containers under secure Linux distributions.",
+    "q-2": "Will I have complete ownership of the system and its source code?",
+    "a-2": "Absolutely. Once development milestones are concluded and final releases are deployed, 100% of the custom source code, operational licenses, and intellectual property are transferred completely to you. We hold no proprietary locks over your custom assets.",
+    "q-3": "Do you offer post-launch technical assistance and updates?",
+    "a-3": "Yes, every custom development project includes a complimentary maintenance period (such as 3 to 6 months) which covers minor bug fixes, server uptime audits, performance optimization, and data security reviews. Extended maintenance SLA support contracts are also available.",
+    "q-4": "How is the development budget calculated and paid?",
+    "a-4": "Budgets are calculated clearly based on features, UI complexities, and integration scopes. We provide detailed line-by-line transparent project estimates. Payments are divided into milestones (such as an initial planning deposit, active development milestones, and a final deployment release sign-off).",
+    "q-5": "Can you upgrade or optimize our existing legacy systems?",
+    "a-5": "Yes, we regularly assist organizations in refactoring old codes, migrating databases from deprecated layouts to secure PostgreSQL/MySQL designs, and building modern, responsive frontend dashboards that pull data from legacy backend pipelines via secure custom RESTful APIs.",
+
+    // Contact Section
+    "contact-badge": "Contact Us",
+    "contact-title": "Let's Start Your Solutions",
+    "contact-subtitle": "Ready to digitalise your workflows? Contact us for a free technical consultation and transparent project quote.",
+    "c-card-addr-title": "Office Address",
+    "c-card-addr-val": "Perum Sukodono Permai Block C-4 Kebonagung, Sukodono, Sidoarjo, East Java, Indonesia",
+    "c-card-phone-title": "Phone Line",
+    "c-card-email-title": "Email Support",
+    "c-card-wa-title": "Direct WhatsApp",
+    "c-card-hours-title": "Business Hours",
+    "c-card-hours-val": "Monday - Friday: 08:00 AM - 05:00 PM<br>Saturday: 08:00 AM - 01:00 PM (UTC+7)",
+    "c-form-title": "Send Message",
+    "c-form-subtitle": "Have a specific project scope? Fill in the details below and we will send a tailored estimate.",
+    "f-lbl-name": "Your Name",
+    "f-lbl-email": "Email Address",
+    "f-lbl-phone": "Phone Number",
+    "f-lbl-msg": "Your Message",
+    "f-ph-name": "John Doe",
+    "f-ph-email": "john@company.com",
+    "f-ph-phone": "+62 851-1130-5026",
+    "f-ph-msg": "Briefly describe your application needs, desired features, or technical questions here...",
+    "f-btn-submit": "Send Proposal Request",
+    "map-tag": "ADELA SOFTWARE OFFICE",
+
+    // Footer
+    "f-brand-tagline": "Adela Software & Komputer is dedicated to building robust, accessible, and high-performance digital systems for institutions and enterprises globally.",
+    "f-col-links-title": "Quick Links",
+    "f-col-srv-title": "Key Services",
+    "f-bottom-rights": "© 2026 Adela Software & Komputer. All rights reserved.",
+    "f-bottom-terms": "Terms of Service",
+    "f-bottom-privacy": "Privacy Policy",
+    "f-bottom-sitemap": "Sitemap",
+    "f-status-online": "Systems Online",
+    "f-submitting": "Submitting...",
+    "f-success": "Message sent successfully! We will contact you soon.",
+    "f-error": "Failed to send message. Please fill in all required fields."
+  },
+  id: {
+    // Navigation
+    "nav-home": "Beranda",
+    "nav-about": "Tentang",
+    "nav-services": "Layanan",
+    "nav-portfolio": "Portofolio",
+    "nav-tech": "Teknologi",
+    "nav-testimonials": "Testimoni",
+    "nav-faq": "FAQ",
+    "nav-contact": "Kontak",
+
+    // Hero Section
+    "hero-badge": "Pemimpin Inovasi",
+    "hero-title-1": "Bangun",
+    "hero-title-2": "Solusi",
+    "hero-title-3": "Digital Cerdas",
+    "hero-subtitle": "Membantu bisnis, sekolah, organisasi, dan institusi membangun situs web, aplikasi, sistem bisnis, dan solusi digital cerdas.",
+    "hero-consult": "Konsultasi Gratis",
+    "hero-services": "Layanan Kami",
+    "hero-trust": "Dipercaya oleh <span>200+</span> klien dan mitra",
+    "fc-1-title": "Situs Web Dibangun",
+    "fc-1-desc": "Modern & responsif",
+    "fc-2-title": "Aplikasi Mobile",
+    "fc-2-desc": "Solusi iOS & Android",
+    "fc-3-title": "Skala Cloud",
+    "fc-3-desc": "Performa & uptime tinggi",
+
+    // About Section
+    "about-badge": "Tentang Kami",
+    "about-title": "Memberdayakan Organisasi Secara Digital",
+    "about-intro": "Adela Software & Komputer adalah agensi pengembangan perangkat lunak profesional yang ahli dalam menciptakan website berkualitas tinggi, aplikasi kustom tangguh, sistem informasi, dan strategi digital cerdas untuk mendukung pertumbuhan operasional Anda.",
+    "about-tab-vision": "Visi Kami",
+    "about-tab-mission": "Misi Kami",
+    "about-vision": "Menjadi mitra teknologi terkemuka dan paling tepercaya dalam membangun solusi digital cerdas yang andal, inovatif, dan mudah diakses yang memberdayakan institusi dan bisnis di tingkat global.",
+    "about-mission-1": "Menyediakan produk perangkat lunak kustom berkualitas luar biasa yang dirancang khusus untuk kebutuhan unik setiap klien.",
+    "about-mission-2": "Mempertahankan standar keamanan, skalabilitas, dan kebersihan kode tertinggi di setiap proyek.",
+    "about-mission-3": "Memberikan dukungan jangka panjang dan pemeliharaan tanpa hambatan demi kelangsungan operasional bisnis yang berkelanjutan.",
+    "about-values-title": "Nilai Utama Kami",
+    "val-prof-title": "Profesional",
+    "val-prof-desc": "Berkomitmen penuh menyelesaikan proyek tepat waktu dengan keahlian kelas atas dan kepatuhan standar global.",
+    "val-innov-title": "Inovasi",
+    "val-innov-desc": "Selalu mengeksplorasi teknologi mutakhir, arsitektur modern, dan metodologi baru untuk hasil terbaik.",
+    "val-integ-title": "Integritas",
+    "val-integ-desc": "Meraih kepercayaan melalui transparansi mutlak, perlindungan privasi data ketat, dan etika kerja luhur.",
+    "val-collab-title": "Kolaborasi",
+    "val-collab-desc": "Bekerja harmonis secara erat dengan klien kami untuk mewujudkan konsep ambisius menjadi sistem fungsional.",
+
+    // Services Section
+    "services-badge": "Layanan Kami",
+    "services-title": "Layanan Cerdas Terpadu",
+    "services-subtitle": "Solusi komprehensif yang dirancang untuk mengatasi kompleksitas operasional dan mempercepat transformasi digital Anda.",
+    "s-web-title": "Pengembangan Website",
+    "s-web-desc": "Situs web dan landing page kustom berkinerja tinggi serta responsif, didesain elegan sesuai identitas brand Anda.",
+    "s-mob-title": "Aplikasi Mobile",
+    "s-mob-desc": "Aplikasi native dan lintas platform untuk iOS dan Android yang dirancang untuk pengalaman mobile terbaik.",
+    "s-is-title": "Sistem Informasi",
+    "s-is-desc": "Database terpusat dan sistem berbasis web untuk mengelola, melacak, dan mengorganisasi data institusi secara dinamis.",
+    "s-bs-title": "Sistem Bisnis",
+    "s-bs-desc": "Sistem ERP, CRM kustom, dan software manajemen operasional internal yang disesuaikan dengan alur kerja Anda.",
+    "s-dt-title": "Aplikasi Desktop",
+    "s-dt-desc": "Aplikasi desktop offline-capable yang aman, cepat, dan tangguh untuk sistem operasional Windows, macOS, dan Linux.",
+    "s-cloud-title": "Implementasi Cloud",
+    "s-cloud-desc": "Penerapan sistem pada infrastruktur cloud terkemuka dengan uptime tinggi, keamanan ketat, dan backup otomatis.",
+    "s-db-title": "Desain Database",
+    "s-db-desc": "Skema database relasional teroptimasi untuk performa tinggi, struktur ternormalisasi, dan keamanan data maksimal.",
+    "s-api-title": "Integrasi API",
+    "s-api-desc": "Koneksi mulus dengan sistem pembayaran (payment gateway), logistik pengiriman, SMS/WA gateway, dan API pihak ketiga.",
+    "s-ai-title": "Solusi AI Pintar",
+    "s-ai-desc": "Integrasi model AI canggih dari OpenAI dan Gemini untuk analisis data, klasifikasi konten, dan wawasan pintar.",
+    "s-auto-title": "Otomatisasi Bisnis",
+    "s-auto-desc": "Pekerja latar belakang cerdas, generator laporan terjadwal otomatis, dan otomatisasi alur kerja demi menghemat waktu.",
+    "s-dash-title": "Dashboard Intuitif",
+    "s-dash-desc": "Antarmuka analitik eksekutif dengan grafik visual interaktif real-time untuk memantau metrik penting bisnis Anda.",
+    "s-maint-title": "Pemeliharaan Sistem",
+    "s-maint-desc": "Pembaruan berkala, pemantauan sistem keamanan, optimalisasi performa database, dan validasi berkala berkas backup.",
+
+    // Why Choose Us Section
+    "why-badge": "Mengapa Memilih Kami",
+    "why-title": "Mitra Teknologi Tanpa Kompromi",
+    "why-subtitle": "Kami berfokus pada kode bersih, arsitektur sistem yang aman, dan kemitraan jangka panjang untuk nilai berkelanjutan.",
+    "w-team-title": "Tim Profesional",
+    "w-team-desc": "Arsitek sistem, desainer UI/UX, dan pengembang berpengalaman tinggi dengan komitmen kualitas terbaik.",
+    "w-tech-title": "Teknologi Modern",
+    "w-tech-desc": "Memanfaatkan kerangka kerja modern, cepat, serta aman untuk menjamin skalabilitas sistem jangka panjang.",
+    "w-sec-title": "Sistem Keamanan Tinggi",
+    "w-sec-desc": "Fokus ketat pada keamanan siber, enkripsi protokol, dan lapisan otentikasi tangguh untuk melindungi data Anda.",
+    "w-scale-title": "Sangat Skalabel",
+    "w-scale-desc": "Sistem yang kami bangun dirancang untuk mampu tumbuh mulus seiring berkembangnya volume data dan pengguna Anda.",
+    "w-afford-title": "Harga Kompetitif",
+    "w-afford-desc": "Penawaran biaya transparan yang disesuaikan dengan anggaran Anda tanpa mengorbankan kualitas produk.",
+    "w-support-title": "Dukungan Pasca Rilis",
+    "w-support-desc": "Kami berkomitmen mendampingi Anda melalui meja bantuan teknis proaktif, perbaikan bug, dan optimasi berkala.",
+    "w-fast-title": "Pengerjaan Cepat",
+    "w-fast-desc": "Metodologi pengerjaan agile memastikan sistem diluncurkan tepat waktu dengan detail estetika visual yang terjaga.",
+    "w-custom-title": "Solusi Kustom Penuh",
+    "w-custom-desc": "Sistem dibangun dari dasar menyesuaikan kebutuhan Anda tanpa batasan template kaku.",
+
+    // Workflow Section
+    "workflow-badge": "Alur Kerja Kami",
+    "workflow-title": "Langkah Menuju Sukses Digital",
+    "workflow-subtitle": "Siklus rekayasa perangkat lunak terstruktur dan transparan untuk mengubah ide hebat menjadi kenyataan sistem produksi.",
+    "wf-1-step": "Langkah 01",
+    "wf-1-title": "Konsultasi",
+    "wf-1-desc": "Sesi diskusi awal untuk menganalisis tujuan bisnis Anda, tantangan operasional, ruang lingkup, dan target sukses.",
+    "wf-2-step": "Langkah 02",
+    "wf-2-title": "Perencanaan",
+    "wf-2-desc": "Menyusun arsitektur logika sistem, relasi entitas database, jadwal pencapaian target, dan rancangan fitur.",
+    "wf-3-step": "Langkah 03",
+    "wf-3-title": "Desain UI/UX",
+    "wf-3-desc": "Menciptakan wireframe visual interaktif dan rancangan antarmuka modern yang selaras dengan identitas brand Anda.",
+    "wf-4-step": "Langkah 04",
+    "wf-4-title": "Pengembangan",
+    "wf-4-desc": "Proses penulisan kode berkualitas, bersih, terdokumentasi rapi menggunakan teknologi modern dan responsif.",
+    "wf-5-step": "Langkah 05",
+    "wf-5-title": "Pengujian & QA",
+    "wf-5-desc": "Uji kualitas komprehensif, kompatibilitas lintas browser, verifikasi API, dan audit celah keamanan.",
+    "wf-6-step": "Langkah 06",
+    "wf-6-title": "Peluncuran",
+    "wf-6-desc": "Penerapan sistem ke lingkungan cloud yang aman dan teroptimasi, lengkap dengan panel pemantauan server.",
+    "wf-7-step": "Langkah 07",
+    "wf-7-title": "Pemeliharaan",
+    "wf-7-desc": "Pembaruan berkala bulanan, pemantauan keamanan, optimalisasi cloud, dan layanan bantuan teknis responsif.",
+
+    // Tech Stack Section
+    "tech-badge": "Teknologi",
+    "tech-title": "Didukung oleh Teknologi Modern",
+    "tech-subtitle": "Kami memilih teknologi handal dan berkinerja tinggi pada setiap lini rekayasa demi menjamin efisiensi sistem.",
+    "tech-cat-all": "Semua",
+    "tech-cat-frontend": "Frontend",
+    "tech-cat-backend": "Backend",
+    "tech-cat-database": "Database",
+    "tech-cat-cloud": "Cloud & OS",
+    "tech-cat-ai": "AI & Otomatisasi",
+
+    // Portfolio Section
+    "portfolio-badge": "Portofolio",
+    "portfolio-title": "Solusi Terbukti yang Diimplementasikan",
+    "portfolio-subtitle": "Jelajahi pameran sistem yang kami bangun untuk korporasi, institusi pendidikan, dan startup inovatif.",
+    "port-cat-all": "Semua Proyek",
+    "port-cat-web": "Website",
+    "port-cat-app": "Aplikasi Mobile",
+    "port-cat-sys": "Sistem Manajemen",
+    "port-cat-dash": "Dashboard",
+    "p-1-title": "Situs Web Perusahaan",
+    "p-1-desc": "Website korporasi multi-halaman yang modern dan aman, dilengkapi panel informasi interaktif dan lokalisasi bahasa.",
+    "p-2-title": "Portal Sekolah & Kampus",
+    "p-2-desc": "Portal institusi dengan lalu lintas tinggi, lengkap dengan penerimaan siswa online, jadwal kelas, dan umpan berita.",
+    "p-3-title": "Sistem Inventaris Cerdas",
+    "p-3-desc": "Perangkat lunak pelacakan stok multi-gudang berbasis cloud dengan fitur ambang batas peringatan stok real-time.",
+    "p-4-title": "Kasir (POS) Cloud",
+    "p-4-desc": "Mesin kasir ringan dan responsif untuk operasi multi-cabang dengan sinkronisasi otomatis saat offline.",
+    "p-5-title": "Sistem Informasi Akademik",
+    "p-5-desc": "Sistem basis data komprehensif untuk penilaian, pengelolaan rapor, biodata siswa, dan laporan nilai institusi.",
+    "p-6-title": "Platform Keanggotaan Organisasi",
+    "p-6-desc": "Hub jaringan keanggotaan kustom dengan sistem pembayaran iuran bulanan yang aman dan forum diskusi.",
+    "p-7-title": "Dashboard Analisis Eksekutif",
+    "p-7-desc": "Visualisasi grafik penjualan interaktif real-time, statistik operasional server, dan retensi pengguna.",
+    "p-8-title": "Sistem Pemesanan Jadwal",
+    "p-8-desc": "Sistem penjadwalan janji temu online kustom dengan pengiriman notifikasi konfirmasi WhatsApp dan Email otomatis.",
+
+    // Statistics Section
+    "stat-proj-label": "Proyek Selesai",
+    "stat-cli-label": "Klien Aktif",
+    "stat-exp-label": "Tahun Pengalaman",
+    "stat-sup-label": "Dukungan Teknis",
+
+    // Testimonials Section
+    "test-badge": "Testimoni",
+    "test-title": "Apa Kata Mitra Kami",
+    "test-subtitle": "Kami bangga membangun kerja sama yang mendorong pertumbuhan bisnis serta stabilitas teknologi.",
+    "t1-review": '"Adela Software berhasil memodernisasi seluruh sistem pelacakan kami. Dashboard cloud baru mereka sangat mempercepat proses pencarian data logistik, dan tim pemeliharaannya sangat responsif."',
+    "t1-name": "Hendrawan Prasetyo",
+    "t1-company": "CTO, Amanah Logistics Corp",
+    "t2-review": '"Portal akademik yang mereka hadirkan sangat mudah digunakan oleh siswa, orang tua, maupun staf administrasi kami. Proses pendaftaran siswa baru kini berjalan otomatis dan aman di server Cloud."',
+    "t2-name": "Siti Rahmawati",
+    "t2-company": "Direktur, Yayasan Pendidikan Nusantara",
+    "t3-review": '"Kami membutuhkan sistem POS berskala tinggi dengan kemampuan bekerja offline. Adela menghadirkan solusi cepat tanpa celah yang menyinkronkan data seketika saat jaringan terhubung kembali."',
+    "t3-name": "David Christian",
+    "t3-company": "Founder, Pinnacle Retail Group",
+
+    // FAQ Section
+    "faq-badge": "FAQ",
+    "faq-title": "Pertanyaan Teknis Umum",
+    "faq-subtitle": "Punya pertanyaan seputar layanan kami? Kami merangkum beberapa jawaban terkait proses proyek, kode sumber, dan sistem biaya.",
+    "q-1": "Teknologi apa saja yang menjadi keahlian Adela Software?",
+    "a-1": "Kami menguasai tumpukan teknologi modern di setiap lini. Di frontend, kami membangun template responsif yang ringan (HTML5, CSS3, JavaScript). Di backend, kami mengembangkan server aman menggunakan Node.js, PHP, atau Python. Untuk database, kami mendesain skema relasional menggunakan MySQL, PostgreSQL, dan SQLite. Kami menerapkan sistem pada infrastruktur VPS dan kontainer Docker di bawah sistem operasi Linux yang aman.",
+    "q-2": "Apakah saya akan memiliki kepemilikan penuh atas kode sumber sistem?",
+    "a-2": "Tentu saja. Setelah seluruh proses pengerjaan selesai dan peluncuran produk disetujui, 100% kode sumber kustom, hak operasional, dan kekayaan intelektual sistem dialihkan sepenuhnya kepada Anda tanpa batasan lisensi dari kami.",
+    "q-3": "Apakah Adela menyediakan bantuan teknis setelah sistem diluncurkan?",
+    "a-3": "Ya, setiap pengerjaan proyek sudah mencakup masa pemeliharaan gratis (misal 3 hingga 6 bulan) untuk perbaikan bug minor, pemantauan kestabilan server, optimalisasi performa database, dan audit berkala. Kami juga menyediakan layanan kontrak pemeliharaan SLA lanjutan.",
+    "q-4": "Bagaimana metode perhitungan anggaran pengerjaan proyek?",
+    "a-4": "Anggaran dihitung secara transparan berdasarkan kompleksitas fitur, desain UI, dan cakupan integrasi API. Kami memberikan estimasi biaya terperinci baris demi baris. Pembayaran dibagi dalam beberapa termin disesuaikan dengan kemajuan milestone pengerjaan.",
+    "q-5": "Apakah Adela bisa membantu mengoptimalkan atau mengupgrade sistem lama kami?",
+    "a-5": "Tentu bisa. Kami sering membantu organisasi melakukan refaktoring kode lama, memigrasikan database usang ke desain PostgreSQL/MySQL modern yang aman, serta membangun dashboard frontend modern yang dinamis yang menarik data sistem lama melalui RESTful API kustom.",
+
+    // Contact Section
+    "contact-badge": "Hubungi Kami",
+    "contact-title": "Mulai Solusi Anda Sekarang",
+    "contact-subtitle": "Siap mendigitalisasikan alur kerja Anda? Hubungi kami sekarang untuk sesi konsultasi gratis dan rancangan estimasi proyek transparan.",
+    "c-card-addr-title": "Alamat Kantor",
+    "c-card-addr-val": "Perum Sukodono Permai Blok C-4 Kebonagung, Sukodono, Sidoarjo, Jawa Timur, Indonesia",
+    "c-card-phone-title": "Saluran Telepon",
+    "c-card-email-title": "Dukungan Email",
+    "c-card-wa-title": "WhatsApp Langsung",
+    "c-card-hours-title": "Jam Operasional",
+    "c-card-hours-val": "Senin - Jumat: 08:00 - 17:00 WIB<br>Sabtu: 08:00 - 13:00 WIB",
+    "c-form-title": "Kirim Pesan",
+    "c-form-subtitle": "Punya kebutuhan sistem khusus? Beritahu kami detailnya di bawah dan kami akan segera mengirimkan perkiraan penawaran.",
+    "f-lbl-name": "Nama Anda",
+    "f-lbl-email": "Alamat Email",
+    "f-lbl-phone": "Nomor Telepon",
+    "f-lbl-msg": "Pesan Anda",
+    "f-ph-name": "Budi Santoso",
+    "f-ph-email": "budi@perusahaan.com",
+    "f-ph-phone": "+62 851-1130-5026",
+    "f-ph-msg": "Jelaskan secara singkat kebutuhan sistem, fitur yang diinginkan, atau pertanyaan teknis Anda di sini...",
+    "f-btn-submit": "Kirim Permintaan Proposal",
+    "map-tag": "KANTOR ADELA SOFTWARE",
+
+    // Footer
+    "f-brand-tagline": "Adela Software & Komputer berdedikasi membangun sistem digital andal, mudah diakses, serta berkinerja tinggi untuk institusi dan perusahaan global.",
+    "f-col-links-title": "Tautan Cepat",
+    "f-col-srv-title": "Layanan Utama",
+    "f-bottom-rights": "© 2026 Adela Software & Komputer. Hak cipta dilindungi.",
+    "f-bottom-terms": "Ketentuan Layanan",
+    "f-bottom-privacy": "Kebijakan Privasi",
+    "f-bottom-sitemap": "Peta Situs",
+    "f-status-online": "Sistem Online",
+    "f-submitting": "Mengirim...",
+    "f-success": "Pesan berhasil dikirim! Kami akan segera menghubungi Anda.",
+    "f-error": "Gagal mengirim pesan. Silakan lengkapi semua bidang wajib."
+  }
+};
+
+// -------------------------------------------------------------------------- //
+// 2. STATE MANAGER (LANGUAGE & THEME)                                       //
+// -------------------------------------------------------------------------- //
+
+let currentLang = localStorage.getItem('adela_lang') || 'en';
+let currentTheme = localStorage.getItem('adela_theme') || 'light';
+
+// Language Setter
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('adela_lang', lang);
+  
+  // Update Buttons active class
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+
+  // Execute instant dictionary replacements
+  const elements = document.querySelectorAll('[data-translate]');
+  elements.forEach(el => {
+    const key = el.getAttribute('data-translate');
+    if (translations[currentLang] && translations[currentLang][key] !== undefined) {
+      el.innerHTML = translations[currentLang][key];
+    }
+  });
+
+  // Execute placeholders translations
+  const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+  placeholderElements.forEach(el => {
+    const key = el.getAttribute('data-translate-placeholder');
+    if (translations[currentLang] && translations[currentLang][key] !== undefined) {
+      el.setAttribute('placeholder', translations[currentLang][key]);
+    }
+  });
+}
+
+// Theme Setter
+function setTheme(theme) {
+  currentTheme = theme;
+  localStorage.setItem('adela_theme', theme);
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
+// Initialize Preferences on Script Load
+setLanguage(currentLang);
+setTheme(currentTheme);
+
+// -------------------------------------------------------------------------- //
+// 3. CORE INTERACTIVE FEATURES                                               //
+// -------------------------------------------------------------------------- //
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // FADE OUT LOADING SCREEN
+  const loader = document.getElementById('loading-screen');
+  if (loader) {
+    setTimeout(() => {
+      loader.style.opacity = '0';
+      loader.style.visibility = 'hidden';
+    }, 800);
+  }
+
+  // LANGUAGE TOGGLE EVENT LISTENERS
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedLang = btn.getAttribute('data-lang');
+      setLanguage(selectedLang);
+    });
+  });
+
+  // THEME TOGGLE EVENT LISTENERS
+  const themeToggles = document.querySelectorAll('.theme-toggle');
+  themeToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const targetTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(targetTheme);
+    });
+  });
+
+  // STICKY HEADER SCROLL EVENT
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // HAMBURGER MOBILE MENU DRAWER
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  const overlay = document.getElementById('overlay-backdrop');
+
+  function toggleMobileMenu() {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    overlay.classList.toggle('active');
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener('click', toggleMobileMenu);
+  }
+  if (overlay) {
+    overlay.addEventListener('click', toggleMobileMenu);
+  }
+
+  // Close mobile drawer when clicking menu links
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileNav.classList.contains('open')) {
+        toggleMobileMenu();
+      }
+    });
+  });
+
+  // RIPPLE BUTTON EFFECT
+  const buttons = document.querySelectorAll('.btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      const x = e.clientX - e.target.getBoundingClientRect().left;
+      const y = e.clientY - e.target.getBoundingClientRect().top;
+      
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+
+  // VISION / MISSION ABOUT TABS
+  const tabBtns = document.querySelectorAll('.vm-tab-btn');
+  const tabContents = document.querySelectorAll('.vm-tab-content');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetContent = document.getElementById(`tab-${targetTab}`);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    });
+  });
+
+  // TECH STACK FILTER ENGINE
+  const techTabBtns = document.querySelectorAll('.tech-tab-btn');
+  const techCards = document.querySelectorAll('.tech-card');
+
+  techTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      techTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      techCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(15px) scale(0.95)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 250);
+        }
+      });
+    });
+  });
+
+  // PORTFOLIO FILTER ENGINE
+  const portfolioTabBtns = document.querySelectorAll('.portfolio-tab-btn');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+  portfolioTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      portfolioTabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      portfolioCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px) scale(0.95)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+
+  // TESTIMONIAL SLIDER ENGINE
+  const slider = document.getElementById('testimonial-slider');
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevBtn = document.getElementById('slider-prev');
+  const nextBtn = document.getElementById('slider-next');
+  const dotsContainer = document.getElementById('slider-dots');
+  
+  let currentSlide = 0;
+  let autoplayTimer;
+
+  if (slides.length > 0) {
+    // Render Dot Indicators dynamically based on slide count
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('slider-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', `Go to testimonial slide ${index + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(index);
+          resetAutoplay();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateSlider() {
+      if (slider) {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+      // Update dots
+      const dots = document.querySelectorAll('.slider-dot');
+      dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+      });
+    }
+
+    function startAutoplay() {
+      autoplayTimer = setInterval(nextSlide, 6000);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoplayTimer);
+      startAutoplay();
+    }
+
+    startAutoplay();
+  }
+
+  // FAQ ACCORDION ENGINE
+  const faqHeaders = document.querySelectorAll('.faq-header');
+  faqHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const faqItem = header.parentElement;
+      const faqContent = faqItem.querySelector('.faq-content');
+      const isOpen = faqItem.classList.contains('open');
+
+      // Close all other open items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== faqItem) {
+          item.classList.remove('open');
+          item.querySelector('.faq-content').style.maxHeight = '0';
+        }
+      });
+
+      // Toggle this item
+      if (isOpen) {
+        faqItem.classList.remove('open');
+        faqContent.style.maxHeight = '0';
+      } else {
+        faqItem.classList.add('open');
+        faqContent.style.maxHeight = `${faqContent.scrollHeight}px`;
+      }
+    });
+  });
+
+  // BACK TO TOP BUTTON
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // DACTIVE SECTION SCROLL SPY FOR NAVBAR
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    let scrollPos = window.scrollY + 200;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  });
+
+  // SCROLL REVEAL (IntersectionObserver)
+  const revealElements = document.querySelectorAll('.reveal, .reveal-fade, .reveal-left, .reveal-right, .stagger-parent');
+  
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+
+        // If it's a stagger parent, we add delay to children
+        if (entry.target.classList.contains('stagger-parent')) {
+          const children = entry.target.children;
+          Array.from(children).forEach((child, index) => {
+            child.style.transitionDelay = `${index * 120}ms`;
+            child.style.opacity = '1';
+            child.style.transform = 'translateY(0)';
+          });
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // STATS COUNTER ANIMATION ENGINE
+  const statsSection = document.getElementById('statistics');
+  const statNumbers = document.querySelectorAll('.stat-num');
+  let countersAnimated = false;
+
+  function animateCounters() {
+    statNumbers.forEach(stat => {
+      const target = parseFloat(stat.getAttribute('data-target'));
+      const suffix = stat.getAttribute('data-suffix') || '';
+      const isDecimal = target % 1 !== 0;
+      let count = 0;
+      const duration = 2000; // ms
+      const startTime = performance.now();
+
+      function updateCount(timestamp) {
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const currentVal = progress * target;
+
+        if (isDecimal) {
+          stat.innerText = currentVal.toFixed(1) + suffix;
+        } else {
+          stat.innerText = Math.floor(currentVal) + suffix;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          stat.innerText = target + suffix;
+        }
+      }
+
+      requestAnimationFrame(updateCount);
+    });
+  }
+
+  if (statsSection && statNumbers.length > 0) {
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersAnimated) {
+          animateCounters();
+          countersAnimated = true;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(statsSection);
+  }
+
+  // WORKFLOW LINE GLOW ANIMATION
+  const workflowSection = document.getElementById('workflow');
+  const timelineGlow = document.getElementById('timeline-line-glow');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  if (workflowSection && timelineGlow) {
+    window.addEventListener('scroll', () => {
+      const sectionTop = workflowSection.offsetTop;
+      const sectionHeight = workflowSection.offsetHeight;
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      if (scrollPos >= sectionTop && scrollPos <= sectionTop + sectionHeight) {
+        const percentage = ((scrollPos - sectionTop) / sectionHeight) * 100;
+        timelineGlow.style.height = `${Math.min(Math.max(percentage, 0), 100)}%`;
+
+        // Active state of timeline circles on scroll
+        timelineItems.forEach(item => {
+          const itemTop = item.offsetTop + sectionTop;
+          if (window.scrollY + window.innerHeight / 1.5 >= itemTop) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+    });
+  }
+
+  // CONTACT FORM SUBMISSION ENGINE
+  const contactForm = document.getElementById('adela-contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const btnSubmit = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = btnSubmit.innerHTML;
+
+      // Update submit to loading state
+      btnSubmit.disabled = true;
+      btnSubmit.innerHTML = `<span data-translate="f-submitting">${translations[currentLang]["f-submitting"]}</span>`;
+
+      // Gather form inputs
+      const name = document.getElementById('form_name').value.trim();
+      const email = document.getElementById('form_email').value.trim();
+      const phone = document.getElementById('form_phone').value.trim();
+      const message = document.getElementById('form_message').value.trim();
+
+      // Simple validations
+      if (!name || !email || !message) {
+        showStatus('error', 'f-error');
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = originalBtnText;
+        return;
+      }
+
+      // Simulate API call using 1-second timeout
+      setTimeout(() => {
+        // Success pathway simulation
+        showStatus('success', 'f-success');
+        contactForm.reset();
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = originalBtnText;
+      }, 1200);
+    });
+  }
+
+  function showStatus(type, translationKey) {
+    formStatus.className = 'form-status'; // Reset class
+    formStatus.classList.add(type);
+    formStatus.setAttribute('data-translate', translationKey);
+    formStatus.innerHTML = translations[currentLang][translationKey];
+    
+    // Smooth scroll to status message
+    formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Clear alert after 8 seconds
+    setTimeout(() => {
+      formStatus.style.display = 'none';
+    }, 8000);
+  }
+
+});
+
+  </script>
+</body>
+</html>
